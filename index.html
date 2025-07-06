@@ -20,6 +20,7 @@
     
     body {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
     }
@@ -31,12 +32,6 @@
         height: auto;
         object-fit: contain;
     }
-    
-    /* Center the Ko-fi button */
-    .floatingchat-container-wrap {
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-    }
 </style>
 ```
 
@@ -46,18 +41,10 @@
 
 ```
 <!-- Ko-fi Donation Button -->
-<script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
-<script>
-  kofiWidgetOverlay.draw('arclab', {
-    'type': 'floating-chat',
-    'floating-chat.donateButton.text': 'Support us',
-    'floating-chat.donateButton.background-color': '#fcbf47',
-    'floating-chat.donateButton.text-color': '#323842',
-    'floating-chat.donateButton.bottom-right': '50%',
-    'floating-chat.donateButton.left': '50%',
-    'floating-chat.donateButton.transform': 'translateX(-50%)'
-  });
-</script>
+<div class="kofi-button">
+    <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
+    <script type='text/javascript'>kofiwidget2.init('Support Me', '#fcbf47', 'arclab');kofiwidget2.draw();</script>
+</div>
 ```
 
 </body>
