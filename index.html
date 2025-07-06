@@ -6,22 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ARC LAB</title>
     <style>
-        body {
+        * {
             margin: 0;
             padding: 0;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: white;
+            box-sizing: border-box;
         }
 
 ```
+    html, body {
+        height: 100%;
+        background-color: white;
+    }
+    
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
     img {
-        width: 100%;
-        max-width: 100%;
+        max-width: 95%;
         height: auto;
-        display: block;
     }
 </style>
 ```
@@ -36,7 +41,7 @@
 <script>
   kofiWidgetOverlay.draw('arclab', {
     'type': 'floating-chat',
-    'floating-chat.donateButton.text': 'Support me',
+    'floating-chat.donateButton.text': 'Support us',
     'floating-chat.donateButton.background-color': '#fcbf47',
     'floating-chat.donateButton.text-color': '#323842'
   });
