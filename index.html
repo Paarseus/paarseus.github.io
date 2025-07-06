@@ -12,7 +12,7 @@
             box-sizing: border-box;
         }
 
-
+```
     html, body {
         height: 100%;
         background-color: white;
@@ -20,6 +20,7 @@
     
     body {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
     }
@@ -32,24 +33,22 @@
         object-fit: contain;
     }
 </style>
-
+```
 
 </head>
 <body>
     <img src="image.jpg" alt="ARC LAB">
 
+```
+<!-- Partying Parrot -->
+<img src="https://cultofthepartyparrot.com/parrots/hd/parrot.gif" alt="Party Parrot" style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; z-index: 1000;">
 
 <!-- Ko-fi Donation Button -->
-<script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
-<script>
-  kofiWidgetOverlay.draw('arclab', {
-    'type': 'floating-chat',
-    'floating-chat.donateButton.text': 'Support us',
-    'floating-chat.donateButton.background-color': '#fcbf47',
-    'floating-chat.donateButton.text-color': '#323842'
-  });
-</script>
-
+<div class="kofi-button">
+    <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
+    <script type='text/javascript'>kofiwidget2.init('Support Us', '#fcbf47', 'arclab');kofiwidget2.draw();</script>
+</div>
+```
 
 </body>
 </html>
