@@ -1,0 +1,262 @@
+%-------------------------
+% Resume - Parsa Ghasemi
+% Classic ATS-Friendly Format
+%-------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+
+% Page setup
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-0.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Section formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{#1 \vspace{-2pt}}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \small #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+% RESUME STARTS HERE
+%-------------------------------------------
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Parsa Ghasemi} \\ \vspace{1pt}
+    \small 424-844-8222 $|$
+    \href{mailto:mghasemi@cpp.edu}{\underline{mghasemi@cpp.edu}} $|$
+    \href{https://linkedin.com/in/paarseus}{\underline{linkedin.com/in/paarseus}} $|$
+    \href{https://github.com/Paarseus}{\underline{github.com/Paarseus}}
+\end{center}
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Vice President}{Jul 2025 -- Present}
+      {Autonomous Vehicle Laboratory, Cal Poly Pomona}{Pomona, CA}
+      \resumeItemListStart
+        \resumeItem{Undergraduate executive in DoE-funded graduate research lab with 50+ members, promoted based on technical contributions to CAN bus and embedded systems}
+        \resumeItem{Administer \$84,000+ annual Department of Education research grant, overseeing budget allocation, procurement, and fiscal reporting}
+        \resumeItem{Direct 15 researchers across 4 teams delivering 3 conference papers, 1 production AV platform, and \$30,000+ in documented cost savings}
+        \resumeItem{Achieved 100\% paper submission rate by guiding 4 concurrent research teams, with 2 papers accepted to peer-reviewed conferences}
+        \resumeItem{Reduced new researcher onboarding time by 50\% by establishing standardized protocols and technical documentation}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Research Assistant}{Apr 2025 -- Jul 2025}
+      {Autonomous Vehicle Laboratory, Cal Poly Pomona}{Pomona, CA}
+      \resumeItemListStart
+        \resumeItem{Identified 3 CAN bus attack vectors and developed defense framework, resulting in SCCUR oral presentation to 500+ attendees}
+        \resumeItem{Engineered embedded control system achieving 100 Hz loops and centimeter-level positioning, deployed on production research vehicle}
+        \resumeItem{Co-authored 2 research papers with graduate researchers, contributing experimental design and data analysis for peer review}
+        \resumeItem{Promoted to Vice President within 3 months based on technical contributions and leadership capabilities}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Founder \& President}{Jan 2025 -- Present}
+      {Legged Robotics Lab}{Pomona, CA}
+      \resumeItemListStart
+        \resumeItem{Founded student organization and 501(c)(3) robotics nonprofit focused on legged locomotion; secured \$10K+ in funding}
+        \resumeItem{Designing bipedal robot platform with forward and inverse kinematics analysis for walking gait development}
+        \resumeItem{Deliver workshops on embedded systems, control theory, kinematics, and robot locomotion}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {California State Polytechnic University, Pomona}{Pomona, CA}
+      {Bachelor of Science in Computer Engineering; GPA: 3.5/4.0}{Expected May 2027}
+      \resumeItemListStart
+        \resumeItem{Relevant Coursework: Data Structures, Embedded Systems, Digital Logic Design, Signals \& Systems, Linear Algebra}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projects}
+  \resumeSubHeadingListStart
+
+    \resumeProjectHeading
+      {\textbf{Autonomous Vehicle Navigation System} $|$ \emph{Python, ROS2, OpenCV, NumPy, OSMnx}}{2025 -- 2026}
+      \resumeItemListStart
+        \resumeItem{Architected autonomous navigation system enabling campus waypoint following validated over 50+ hours of field testing}
+        \resumeItem{Achieved centimeter-level positioning by developing GPS/RTK/IMU fusion pipeline processing at 100 Hz with EKF and graceful degradation}
+        \resumeItem{Built probabilistic occupancy grid achieving 0.2m resolution over 400m$^2$ coverage using Bayesian log-odds and Bresenham raycasting}
+        \resumeItem{Implemented Dynamic Window Approach (DWA) with kinematic bicycle model and Pure Pursuit path-following for Ackermann-steering vehicles}
+        \resumeItem{Integrated OpenStreetMap routing via OSMnx with Dijkstra's algorithm for GPS-based waypoint navigation on real road networks}
+        \resumeItem{Implemented Pure Pursuit path-following controller with adaptive speed-dependent lookahead and linear waypoint interpolation}
+        \resumeItem{Developed costmap with morphological obstacle inflation for C-space collision checking and thread-safe concurrent access}
+        \resumeItem{Built PID velocity controller with anti-windup and HeadingPID with angle wrapping at $\pm\pi$ discontinuity}
+        \resumeItem{Integrated Velodyne VLP-16 LIDAR, Intel RealSense RGB-D, and Xsens MTi-680G IMU with unified sensor abstraction layer}
+        \resumeItem{Designed thread-safe state containers with lock-protected snapshots for multi-threaded perception/control/visualization pipeline}
+        \resumeItem{Integrated YOLOPv2 multi-task neural network for drivable area segmentation and lane line detection on RealSense RGB-D frames}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+      {\textbf{Distributed Embedded Vehicle Control System} $|$ \emph{C++, Teensy 4.1, CAN Bus, I2C, FlexCAN}}{2025 -- 2026}
+      \resumeItemListStart
+        \resumeItem{Engineered distributed CAN bus system in C++ achieving 100 Hz deterministic control across 4 Teensy MCUs at 250 kbps}
+        \resumeItem{Achieved zero safety incidents over 50+ hours by implementing 4-layer E-STOP architecture with $<$200ms emergency response}
+        \resumeItem{Developed throttle control node with MCP4728 quad DAC over I2C for precise voltage output (0.3V--4.0V) and drive mode selection}
+        \resumeItem{Built stepper motor steering controller with limit switch protection, analog encoder feedback, and non-blocking pulse generation}
+        \resumeItem{Implemented closed-loop brake actuator control with linear actuator position feedback and stroke calibration}
+        \resumeItem{Designed custom CAN message protocol (0x100/0x200/0x300) with JSON telemetry and ASCII command interface for remote monitoring}
+        \resumeItem{Built 500ms hardware watchdog with automatic E-STOP failsafe across distributed CAN network}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+      {\textbf{Multimodal Imitation Learning for Day-Night Driving} $|$ \emph{Python, PyTorch, OpenCV}}{2025}
+      \resumeItemListStart
+        \resumeItem{Built multi-sensor data pipeline (RGB 30Hz, thermal 30Hz, CAN 20Hz) capturing 50,000+ training frames for imitation learning}
+        \resumeItem{Implemented multimodal perception pipeline fusing RGB and thermal cameras for robust day-night operation}
+        \resumeItem{Achieved autonomous navigation with only 3 manual interventions over 0.3-mile campus route; presented at SCAIR symposium}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+      {\textbf{Real-Time Vehicle WebUI with Voice Control} $|$ \emph{Python, FastAPI, WebSocket, Whisper}}{2025 -- 2026}
+      \resumeItemListStart
+        \resumeItem{Developed real-time web interface with WebSocket bridge to Teensy CAN master for remote vehicle control from mobile devices}
+        \resumeItem{Integrated OpenAI Whisper speech-to-text for voice commands (E-STOP, throttle, steering, mode selection) over HTTPS}
+        \resumeItem{Implemented joystick-to-control mapping, concurrent client management, and JSON state streaming at 50ms update rate}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+      {\textbf{Reinforcement Learning Environment for Autonomous Driving} $|$ \emph{Python, Gymnasium, CARLA, NumPy}}{Summer 2025}
+      \resumeItemListStart
+        \resumeItem{Designed modular Gymnasium environment for CARLA simulator achieving 100 steps/sec training throughput with $<$10ms multi-sensor latency}
+        \resumeItem{Architected manager-based system (7 modules) with factory pattern sensors, JSON-configurable scenarios, and dual-queue event handling}
+        \resumeItem{Trained PPO agent to achieve stable lane-following behavior within 50,000 steps, validated over 10,000 episodes with no memory leaks}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------RESEARCH & PUBLICATIONS-----------
+\section{Research \& Publications}
+  \resumeSubHeadingListStart
+
+    \resumeProjectHeading
+      {\textbf{Defense-in-Depth Security Architecture for CAN-Based AV Control Systems}}{Nov 2025}
+      \resumeItemListStart
+        \resumeItem{\textit{Oral Presentation} at Southern California Conference for Undergraduate Research (SCCUR), CSU Channel Islands}
+        \resumeItem{Developed multi-layered cybersecurity framework to harden CAN bus networks against injection attacks, replay attacks, and unauthorized access}
+        \resumeItem{Proposed practical security mechanisms for real-world deployment on production autonomous vehicles}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+      {\textbf{Simplified Multimodal Imitation Learning for Day-Night Autonomous Driving}}{2025}
+      \resumeItemListStart
+        \resumeItem{\textit{Poster Presentation} at Southern California AI and Robotics Symposium (SCAIR)}
+        \resumeItem{Researched imitation learning techniques enabling autonomous vehicles to generalize driving behavior across varying lighting conditions}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+      {\textbf{DRIVE: Development Research Infrastructure for Vehicle Education}}{2026}
+      \resumeItemListStart
+        \resumeItem{\textit{Conference Paper} accepted to ASEE Zone IV Conference 2026}
+        \resumeItem{Authored technical paper documenting affordable AV education platform (\$30,000 vs \$200,000+ commercial systems)}
+        \resumeItem{Presented replicable drive-by-wire architecture for converting commodity UTVs into research testbeds with custom CAN bus control}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Programming}{: Python, C++, C, MATLAB} \\
+     \textbf{Robotics \& Autonomy}{: ROS2, Nav2, OpenCV, Open3D, PyTorch, CARLA, Gymnasium, robot\_localization, tf2, URDF} \\
+     \textbf{Embedded Systems}{: Teensy 4.1, RP2040, Arduino, PlatformIO (cross-compilation), Real-time Control Systems} \\
+     \textbf{Protocols}{: CAN Bus (FlexCAN), I2C, SPI, UART, Serial, Ethernet/UDP, NTRIP} \\
+     \textbf{Sensors}{: LIDAR (Velodyne VLP-16), RGB-D (Intel RealSense), GPS/RTK/IMU (Xsens MTi-680G), Encoders} \\
+     \textbf{Libraries}{: NumPy, OSMnx, NetworkX, PyProj, Shapely, FastAPI, Adafruit\_MCP4728} \\
+     \textbf{Tools}{: Git, Linux, Sphinx, VS Code} \\
+     \textbf{Concepts}{: Multithreading, Sensor Fusion, Path Planning, Control Theory, Occupancy Grids, Kinematics, EKF, Reinforcement Learning} \\
+     \textbf{Languages}{: English (Fluent), Farsi/Persian (Native)}
+    }}
+ \end{itemize}
+
+%-----------VOLUNTEER EXPERIENCE-----------
+\section{Volunteer Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {NSTI Program Volunteer Assistant}{Jul 2025}
+      {Caltrans}{Pomona, CA}
+      \resumeItemListStart
+        \resumeItem{Supported Caltrans National Summer Transportation Institute (NSTI) STEM outreach program for underrepresented high school students}
+        \resumeItem{Assisted professors with hands-on STEM lessons, student engagement activities, and field trip logistics}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {SCAIR 2025 Symposium Student Volunteer}{Oct 2025}
+      {California State Polytechnic University, Pomona}{Pomona, CA}
+      \resumeItemListStart
+        \resumeItem{Assisted with organization, A/V setup, and session coordination for Southern California AI \& Robotics Symposium}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {SCCUR 2025 Conference Volunteer}{Nov 2025}
+      {California State University Channel Islands}{Camarillo, CA}
+      \resumeItemListStart
+        \resumeItem{Facilitated smooth experience for 500+ student presenters and faculty attendees across multiple concurrent sessions}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-------------------------------------------
+\end{document}

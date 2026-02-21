@@ -1,0 +1,176 @@
+%-------------------------
+% Resume - Parsa Ghasemi
+% Tailored for: Tesla Optimus C++ Robotics Software Engineer Intern (Summer 2026)
+% Req ID: 257514
+%-------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+
+% Page setup
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-0.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Section formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{#1 \vspace{-2pt}}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \small #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+% RESUME STARTS HERE
+%-------------------------------------------
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Parsa Ghasemi} \\ \vspace{1pt}
+    \small 424-844-8222 $|$
+    \href{mailto:mghasemi@cpp.edu}{\underline{mghasemi@cpp.edu}} $|$
+    \href{https://linkedin.com/in/paarseus}{\underline{linkedin.com/in/paarseus}} $|$
+    \href{https://github.com/Paarseus}{\underline{github.com/Paarseus}}
+\end{center}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {California State Polytechnic University, Pomona}{Pomona, CA}
+      {Bachelor of Science in Computer Engineering; GPA: 3.5/4.0}{Expected May 2027}
+      \resumeItemListStart
+        \resumeItem{Coursework: Data Structures, Embedded Systems, Digital Logic, Signals \& Systems, Linear Algebra}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Programming}{: C/C++ (C++14/17/20), Python, MATLAB} \\
+     \textbf{Embedded}{: Teensy 4.1 (ARM Cortex-M7), Cross-Compilation (PlatformIO), Real-time Control, Safety-Critical Systems} \\
+     \textbf{Protocols}{: CAN Bus (FlexCAN), Ethernet/UDP, I2C, SPI, UART, Serial} \\
+     \textbf{Robotics \& ML}{: Sensor Fusion, OpenCV, PyTorch, CARLA, Gymnasium, NumPy} \\
+     \textbf{Tools}{: Git, Linux, VS Code} \\
+     \textbf{Concepts}{: Multithreading, Kinematics, Motor Control, Path Planning, Occupancy Grids, Control Theory}
+    }}
+ \end{itemize}
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Vice President (promoted from Research Assistant)}{Apr 2025 -- Present}
+      {Autonomous Vehicle Laboratory, Cal Poly Pomona}{Pomona, CA}
+      \resumeItemListStart
+        \resumeItem{Earned VP promotion within 3 months in DoE-funded graduate research lab with 50+ members}
+        \resumeItem{Engineered embedded control system with 100 Hz loops and centimeter-level positioning on research vehicle}
+        \resumeItem{Identified 3 CAN bus attack vectors; developed defense framework and presented at SCCUR (500+ attendees)}
+        \resumeItem{Directed 15 researchers across 4 teams delivering 3 conference papers and 1 production AV platform}
+        \resumeItem{Integrated CAN firmware, LIDAR perception, and GPS navigation into validated autonomous pipeline}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Founder \& President}{Jan 2025 -- Present}
+      {Legged Robotics Lab (501(c)(3) Nonprofit)}{Pomona, CA}
+      \resumeItemListStart
+        \resumeItem{Founded 501(c)(3) robotics nonprofit focused on legged locomotion; secured \$10K+ in funding}
+        \resumeItem{Designed bipedal robot platform with forward and inverse kinematics analysis for walking gait development}
+        \resumeItem{Delivered workshops on embedded systems, control theory, kinematics, and robot locomotion}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projects}
+  \resumeSubHeadingListStart
+
+    \resumeProjectHeading
+      {\textbf{Distributed Embedded Vehicle Control System} $|$ \emph{C++, Teensy 4.1, CAN Bus, Ethernet}}{2025 -- 2026}
+      \resumeItemListStart
+        \resumeItem{Wrote and debugged distributed CAN bus firmware in C++ across 4 MCUs at 250 kbps with 100 Hz control}
+        \resumeItem{Implemented Ethernet-to-CAN gateway bridging UDP commands to 3 actuator nodes with JSON state telemetry}
+        \resumeItem{Developed motor controller firmware for stepper steering, linear brake actuator, and I2C DAC throttle}
+        \resumeItem{Achieved zero safety incidents over 50+ hours via multi-layered E-STOP with $<$200ms watchdog response}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+      {\textbf{Autonomous Vehicle Navigation System} $|$ \emph{Python, OpenCV, NumPy, Linux}}{2025 -- 2026}
+      \resumeItemListStart
+        \resumeItem{Architected multi-threaded sensor fusion pipeline processing GPS/IMU data at 100 Hz with mutex-protected state}
+        \resumeItem{Implemented DWA local planner with bicycle model kinematics and Bayesian occupancy grid (0.1m resolution)}
+        \resumeItem{Built Pure Pursuit path follower with adaptive lookahead and costmap-based obstacle inflation}
+        \resumeItem{Integrated Velodyne LIDAR, RealSense RGB-D, and Xsens IMU via thread-safe sensor abstraction layer}
+        \resumeItem{Tested and validated across 50+ hours of on-hardware execution with real-time telemetry and debugging}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+      {\textbf{Reinforcement Learning for Autonomous Driving} $|$ \emph{Python, PyTorch, CARLA}}{2025}
+      \resumeItemListStart
+        \resumeItem{Built CARLA simulation (100 steps/sec, $<$10ms latency); trained PPO agent across 10K episodes}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------PUBLICATIONS-----------
+\section{Publications}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Defense-in-Depth Security Architecture for CAN-Based AV Control Systems} (SCCUR 2025) \\
+     \textbf{Simplified Multimodal Imitation Learning for Day-Night Autonomous Driving} (SCAIR 2025) \\
+     \textbf{DRIVE: Development Research Infrastructure for Vehicle Education} (ASEE 2026)
+    }}
+ \end{itemize}
+
+%-------------------------------------------
+\end{document}
