@@ -161,7 +161,7 @@
     </script>
   </td>
   <td style="padding:8px;width:80%;vertical-align:middle">
-    <a href="#drive-platform">
+    <a href="#control-system">
       <span class="papertitle">Defense-in-Depth Security Architecture for CAN-Based AV Control Systems</span>
     </a>
     <br>
@@ -169,7 +169,7 @@
     <br>
     <em>SCCUR</em>, 2025 &mdash; Oral Presentation, 500+ attendees
     <br>
-    <a href="#drive-platform">project</a>
+    <a href="#control-system">project</a>
     <p></p>
     <p>
       Defense-in-depth security architecture for CAN bus networks in autonomous vehicles, addressing message authentication, anomaly detection, and fail-safe isolation.
@@ -222,28 +222,90 @@
       <strong>Planning:</strong> ROS 2 Nav2 with SmacPlannerHybrid, OSMnx graph routing, probabilistic occupancy grid mapping.
     </p>
     <p>
-      <strong>Control:</strong> 4 Teensy 4.1 MCUs networked over CAN bus at 250 kbps, 20 Hz control loop, 4,900+ LOC C++ embedded firmware.
-    </p>
-    <p>
-      <strong>Teleoperation:</strong> Simchair + phone WebUI + WebRTC video streaming + on-device Whisper voice control.
-    </p>
-    <p>
-      <strong>Safety:</strong> 4-layer E-STOP architecture, 500 ms hardware watchdog, zero incidents over 50+ hours of autonomous operation.
-    </p>
-    <p>
-      <strong>Hardware:</strong> Custom KiCad PCB with SN65HVD230 CAN transceivers, TXB0104D level shifters, and Traco DC-DC converters.
-    </p>
-    <p>
       <a href="https://github.com/Paarseus/AVROS">AVROS</a> /
-      <a href="https://github.com/Paarseus/av-control-system">av-control-system</a> /
-      <a href="https://github.com/Paarseus/AVCONSOLE">AVCONSOLE</a> /
-      <a href="https://github.com/Paarseus/AVPCB">AVPCB</a> /
       paper (ASEE 2026)
     </p>
   </td>
 </tr>
 
-<!-- Project 2: Imitation Learning — highlighted -->
+<!-- Project 2: Distributed Embedded Control System -->
+<tr id="control-system" onmouseout="control_stop()" onmouseover="control_start()">
+  <td style="padding:16px;width:20%;vertical-align:middle">
+    <div class="one">
+      <div class="two" id='control_image'>
+        <img src='images/placeholder.svg' width=100%>
+      </div>
+      <img src='images/placeholder.svg' width=100%>
+    </div>
+    <script type="text/javascript">
+      function control_start() {
+        document.getElementById('control_image').style.opacity = "1";
+      }
+
+      function control_stop() {
+        document.getElementById('control_image').style.opacity = "0";
+      }
+      control_stop()
+    </script>
+  </td>
+  <td style="padding:8px;width:80%;vertical-align:middle">
+    <span class="papertitle">Distributed Embedded Vehicle Control System</span>
+    <br><br>
+    <p>
+      <strong>4,900+ LOC C++</strong> distributed CAN bus control system across <strong>4 Teensy 4.1 MCUs</strong> at 250 kbps with 20 Hz control loop.
+    </p>
+    <p>
+      <strong>Actuators:</strong> Closed-loop steering (stepper motor + encoder), throttle (MCP4728 quad DAC over I2C, 0.3V-4.0V), and brake (linear actuator with position feedback).
+    </p>
+    <p>
+      <strong>Safety:</strong> 4-layer E-STOP architecture, 500 ms hardware watchdog with automatic failsafe, zero incidents over 50+ hours. Custom CAN message protocol (0x100/0x200/0x300) with JSON telemetry and ASCII command interface.
+    </p>
+    <p>
+      <strong>Hardware:</strong> Custom KiCad PCB with SN65HVD230 CAN transceivers, TXB0104D level shifters, and Traco DC-DC converters.
+    </p>
+    <p>
+      <a href="https://github.com/Paarseus/av-control-system">av-control-system</a> /
+      <a href="https://github.com/Paarseus/AVPCB">AVPCB</a>
+    </p>
+  </td>
+</tr>
+
+<!-- Project 3: Teleoperation & WebUI -->
+<tr id="teleoperation" onmouseout="teleop_stop()" onmouseover="teleop_start()">
+  <td style="padding:16px;width:20%;vertical-align:middle">
+    <div class="one">
+      <div class="two" id='teleop_image'>
+        <img src='images/placeholder.svg' width=100%>
+      </div>
+      <img src='images/placeholder.svg' width=100%>
+    </div>
+    <script type="text/javascript">
+      function teleop_start() {
+        document.getElementById('teleop_image').style.opacity = "1";
+      }
+
+      function teleop_stop() {
+        document.getElementById('teleop_image').style.opacity = "0";
+      }
+      teleop_stop()
+    </script>
+  </td>
+  <td style="padding:8px;width:80%;vertical-align:middle">
+    <span class="papertitle">Real-Time Vehicle Teleoperation &amp; WebUI with Voice Control</span>
+    <br><br>
+    <p>
+      Real-time web interface with WebSocket bridge to Teensy CAN master for remote vehicle control from any device. Supports simchair physical controller, mobile phone joystick, and on-device <strong>Whisper speech-to-text</strong> for voice commands (E-STOP, throttle, steering, mode selection).
+    </p>
+    <p>
+      Priority arbitration (simchair &gt; phone), concurrent client management, JSON state streaming at <strong>50 ms update rate</strong>, and WebRTC video streaming.
+    </p>
+    <p>
+      <a href="https://github.com/Paarseus/AVCONSOLE">AVCONSOLE</a>
+    </p>
+  </td>
+</tr>
+
+<!-- Project 4: Imitation Learning — highlighted -->
 <tr id="imitation-learning" onmouseout="il_stop()" onmouseover="il_start()" bgcolor="#ffffd0">
   <td style="padding:16px;width:20%;vertical-align:middle">
     <div class="one">
