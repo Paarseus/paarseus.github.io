@@ -95,7 +95,7 @@
     <a href="#drive-platform">project</a>
     <p></p>
     <p>
-      Presents a full-scale autonomous vehicle platform built for $12K-15K (vs. $200K+ commercial alternatives), where ~30 undergraduates designed every layer from embedded firmware to planning algorithms. Measures self-efficacy gains in systems integration, hardware debugging, and safety-critical development.
+      Building a full-scale autonomous vehicle from scratch for under $15K gives undergraduates the systems integration, hardware debugging, and safety-critical development experience that simulation and pre-built platforms can't.
     </p>
   </td>
 </tr>
@@ -135,7 +135,7 @@
     <a href="#imitation-learning">project</a>
     <p></p>
     <p>
-      Multimodal imitation learning pipeline fusing RGB, thermal, and CAN telemetry for day-to-night autonomous driving with only 3 manual interventions on a 0.3-mile route.
+      Fusing RGB, thermal, and vehicle telemetry into an imitation learning model that drives itself day or night with only 3 manual interventions over a 0.3-mile route.
     </p>
   </td>
 </tr>
@@ -172,7 +172,7 @@
     <a href="#control-system">project</a>
     <p></p>
     <p>
-      Defense-in-depth security architecture for CAN bus networks in autonomous vehicles, addressing message authentication, anomaly detection, and fail-safe isolation.
+      Layering message authentication, anomaly detection, and fail-safe isolation onto a CAN bus keeps a student-built autonomous vehicle safe from the kinds of attacks that keep the automotive industry up at night.
     </p>
   </td>
 </tr>
@@ -213,13 +213,7 @@
     <span class="papertitle">End-to-End Autonomous Vehicle Research Platform</span>
     <br><br>
     <p>
-      Full-stack autonomous vehicle platform built for <strong>$12K-15K vs. $200K+</strong> commercial alternatives, with <strong>19,000+ LOC</strong> across 4 repositories.
-    </p>
-    <p>
-      <strong>Perception:</strong> Velodyne VLP-16 LiDAR, Intel RealSense D435i stereo, Xsens MTi-680G INS with centimeter-level RTK positioning.
-    </p>
-    <p>
-      <strong>Planning:</strong> ROS 2 Nav2 with SmacPlannerHybrid, OSMnx graph routing, probabilistic occupancy grid mapping.
+      Converting a utility vehicle into a fully autonomous research platform for $12K-15K lets ~30 undergraduates build and debug every layer of the stack&mdash;from LiDAR occupancy grids and RTK-GPS localization to Nav2 path planning&mdash;at a fraction of what commercial alternatives cost.
     </p>
     <p>
       <a href="https://github.com/Paarseus/AVROS">AVROS</a> /
@@ -252,16 +246,7 @@
     <span class="papertitle">Distributed Embedded Vehicle Control System</span>
     <br><br>
     <p>
-      <strong>4,900+ LOC C++</strong> distributed CAN bus control system across <strong>4 Teensy 4.1 MCUs</strong> at 250 kbps with 20 Hz control loop.
-    </p>
-    <p>
-      <strong>Actuators:</strong> Closed-loop steering (stepper motor + encoder), throttle (MCP4728 quad DAC over I2C, 0.3V-4.0V), and brake (linear actuator with position feedback).
-    </p>
-    <p>
-      <strong>Safety:</strong> 4-layer E-STOP architecture, 500 ms hardware watchdog with automatic failsafe, zero incidents over 50+ hours. Custom CAN message protocol (0x100/0x200/0x300) with JSON telemetry and ASCII command interface.
-    </p>
-    <p>
-      <strong>Hardware:</strong> Custom KiCad PCB with SN65HVD230 CAN transceivers, TXB0104D level shifters, and Traco DC-DC converters.
+      Four Teensy 4.1 MCUs on a CAN bus run closed-loop steering, throttle, and brake control in 4,900 lines of C++. A four-layer E-STOP and hardware watchdog have kept it at zero safety incidents through 50+ hours of autonomous driving, all on a custom PCB I designed in KiCad.
     </p>
     <p>
       <a href="https://github.com/Paarseus/av-control-system">av-control-system</a> /
@@ -294,10 +279,7 @@
     <span class="papertitle">Real-Time Vehicle Teleoperation &amp; WebUI with Voice Control</span>
     <br><br>
     <p>
-      Real-time web interface with WebSocket bridge to Teensy CAN master for remote vehicle control from any device. Supports simchair physical controller, mobile phone joystick, and on-device <strong>Whisper speech-to-text</strong> for voice commands (E-STOP, throttle, steering, mode selection).
-    </p>
-    <p>
-      Priority arbitration (simchair &gt; phone), concurrent client management, JSON state streaming at <strong>50 ms update rate</strong>, and WebRTC video streaming.
+      Drive the vehicle from a simchair, a phone, or just your voice&mdash;a WebSocket bridge streams commands to the CAN master while WebRTC pipes back live video. Whisper runs on-device for speech-to-text control, and priority arbitration keeps everything safe when multiple inputs compete.
     </p>
     <p>
       <a href="https://github.com/Paarseus/AVCONSOLE">AVCONSOLE</a>
@@ -329,7 +311,7 @@
     <span class="papertitle">Multimodal Imitation Learning for Illumination-Robust Autonomous Driving</span>
     <br><br>
     <p>
-      Collected <strong>50,000+ synchronized frames</strong> (RGB 30 Hz + Thermal 30 Hz + CAN 20 Hz) and trained an imitation learning model that generalizes from day to night driving with only <strong>3 manual interventions</strong> on a 0.3-mile route.
+      Fusing RGB, thermal, and CAN data into a single imitation learning model lets our vehicle drive itself day or night&mdash;trained on 50,000+ synchronized frames and needing only 3 manual interventions across a 0.3-mile campus route.
     </p>
     <p>
       <a href="resume/Simplified-Multimodal-Imitation-Learning-for-Day%E2%80%93Night-Autonomous-Driving.pdf">paper (SCAIR 2025)</a>
@@ -364,7 +346,7 @@
     Alexander Assal
     <br><br>
     <p>
-      7-manager Gymnasium-compatible environment for training RL agents in CARLA, achieving <strong>100 steps/sec</strong> throughput with <strong>&lt;10 ms</strong> latency and zero memory leaks over 10,000 episodes. Compatible with PPO, SAC, and TD3.
+      A modular Gymnasium wrapper around CARLA that hits 100 steps/sec with sub-10 ms latency and zero memory leaks, so you can train PPO, SAC, or TD3 driving agents without fighting the simulator.
     </p>
     <p>
       <a href="https://github.com/Paarseus/carla-rl-suite">GitHub</a>
@@ -396,7 +378,7 @@
     <span class="papertitle">Legged Robotics Lab &mdash; 501(c)(3) Nonprofit &amp; K-Bot Arm Control</span>
     <br><br>
     <p>
-      Founded a 501(c)(3) nonprofit at Cal Poly Pomona with <strong>30+ members</strong> and <strong>$10K+</strong> in funding. Building a ros2_control hardware interface for a 5-DOF Robstride actuator arm using the MIT mini-cheetah CAN motor protocol.
+      A 501(c)(3) nonprofit I founded at Cal Poly Pomona with 30+ members and $10K+ in funding. Currently building a ros2_control interface for a 5-DOF Robstride arm that speaks the MIT mini-cheetah CAN motor protocol.
     </p>
     <p>
       <a href="https://github.com/Paarseus/steveros">GitHub</a>
