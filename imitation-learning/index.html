@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Multimodal imitation learning fusing RGB, thermal, and CAN data for illumination-robust autonomous driving.">
+  <meta name="keywords" content="Imitation Learning, Autonomous Driving, Multimodal, Thermal Camera">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simplified Multimodal Imitation Learning for Day-Night Autonomous Driving</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="../static/css/bulma.min.css">
+  <link rel="stylesheet" href="../static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="../static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="../static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="../static/css/index.css">
+  <link rel="icon" href="../images/favicon/favicon.ico">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="../static/js/fontawesome.all.min.js"></script>
+  <script src="../static/js/bulma-carousel.min.js"></script>
+  <script src="../static/js/bulma-slider.min.js"></script>
+  <script src="../static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="../">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Projects
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="../avros/">
+            AV Platform
+          </a>
+          <a class="navbar-item" href="../control-system/">
+            Control System
+          </a>
+          <a class="navbar-item" href="../imitation-learning/">
+            Imitation Learning
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Simplified Multimodal Imitation Learning for Day&ndash;Night Autonomous Driving</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Aspen Knox<sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://paarseus.github.io/">Parsa Ghasemi</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Cal Poly Pomona</span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="publication-venue">SCAIR, 2025</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="../resume/Simplified-Multimodal-Imitation-Learning-for-Day%E2%80%93Night-Autonomous-Driving.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="../images/placeholder.svg" alt="Day-night driving" style="width:100%; border-radius:10px;">
+      <h2 class="subtitle has-text-centered">
+        Fusing RGB, thermal, and vehicle telemetry into an imitation learning model that drives itself day or night with only 3 manual interventions.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We present a multimodal imitation learning approach that fuses RGB camera (30 Hz), thermal camera (30 Hz), and CAN bus telemetry (20 Hz) to enable autonomous driving across varying lighting conditions. Trained on 50,000+ synchronized frames collected on a campus route, the model learns to generalize driving behavior from day to night without explicit domain adaptation.
+          </p>
+          <p>
+            The system achieves autonomous navigation with only 3 manual interventions over a 0.3-mile campus route, demonstrating that simple sensor fusion with imitation learning can produce robust illumination-invariant driving policies.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Data Pipeline</h2>
+
+        <div class="content has-text-justified">
+          <img src="../images/placeholder.svg" alt="Data pipeline" style="width:100%; border-radius:10px; margin-bottom:1em;">
+          <p>
+            The data pipeline synchronizes three heterogeneous sensor streams: an RGB camera at 30 Hz providing visual context, a thermal camera at 30 Hz capturing illumination-invariant features, and CAN bus telemetry at 20 Hz recording the expert driver's steering and throttle commands. All streams are temporally aligned and stored as synchronized training frames. The dataset captures diverse lighting conditions including direct sunlight, shade, dusk, and nighttime driving.
+          </p>
+        </div>
+
+        <h2 class="title is-3">Multimodal Perception</h2>
+
+        <div class="content has-text-justified">
+          <img src="../images/placeholder.svg" alt="Model architecture" style="width:100%; border-radius:10px; margin-bottom:1em;">
+          <p>
+            The perception pipeline fuses RGB and thermal camera inputs into a joint representation that remains stable across lighting conditions. Where RGB features degrade at night, thermal features provide consistent road and obstacle signatures. The imitation learning model maps this fused representation directly to vehicle control commands, learning the expert's driving policy end-to-end without handcrafted rules.
+          </p>
+        </div>
+
+        <h2 class="title is-3">Results</h2>
+
+        <div class="content has-text-justified">
+          <img src="../images/placeholder.svg" alt="Results" style="width:100%; border-radius:10px; margin-bottom:1em;">
+          <p>
+            The system was evaluated on a 0.3-mile campus route under varying lighting conditions. The trained model achieved autonomous navigation with only 3 manual interventions, demonstrating reliable day-to-night generalization. This work was presented as a poster at the Southern California AI and Robotics Symposium (SCAIR 2025).
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{knox2025imitation,
+  author = {Knox, Aspen and Ghasemi, Parsa},
+  title  = {Simplified Multimodal Imitation Learning for
+            Day--Night Autonomous Driving},
+  year   = {2025},
+  note   = {Poster presentation at the Southern California
+            AI and Robotics Symposium (SCAIR)}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is based on the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> project page template, licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

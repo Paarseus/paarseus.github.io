@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Distributed CAN bus control system with 4 Teensy 4.1 MCUs, custom PCB, and multi-layer safety architecture for autonomous vehicles.">
+  <meta name="keywords" content="CAN Bus, Embedded Systems, Teensy, PCB, Safety">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Distributed Embedded Vehicle Control System</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="../static/css/bulma.min.css">
+  <link rel="stylesheet" href="../static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="../static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="../static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="../static/css/index.css">
+  <link rel="icon" href="../images/favicon/favicon.ico">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="../static/js/fontawesome.all.min.js"></script>
+  <script src="../static/js/bulma-carousel.min.js"></script>
+  <script src="../static/js/bulma-slider.min.js"></script>
+  <script src="../static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="../">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Projects
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="../avros/">
+            AV Platform
+          </a>
+          <a class="navbar-item" href="../control-system/">
+            Control System
+          </a>
+          <a class="navbar-item" href="../imitation-learning/">
+            Imitation Learning
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Distributed Embedded Vehicle Control System</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://paarseus.github.io/">Parsa Ghasemi</a><sup>1</sup>,</span>
+            <span class="author-block">
+              Aspen Knox<sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Cal Poly Pomona</span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="publication-venue">SCCUR 2025 &middot; Oral Presentation</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- Code Links. -->
+              <span class="link-block">
+                <a href="https://github.com/Paarseus/av-control-system"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Control Code</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/Paarseus/AVPCB"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>PCB Design</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/Paarseus/vehicle-can-suite"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>CAN Suite</span>
+                </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="../images/placeholder.svg" alt="Control system" style="width:100%; border-radius:10px;">
+      <h2 class="subtitle has-text-centered">
+        Four Teensy 4.1 MCUs on a CAN bus running closed-loop steering, throttle, and brake control with zero safety incidents over 50+ hours.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We present a distributed embedded control system for a full-scale autonomous vehicle. Four Teensy 4.1 microcontrollers communicate over a CAN bus at 250 kbps to run closed-loop steering, throttle, and brake control. Written in 4,900+ lines of C++, the system implements a Master CAN Controller, MCP4728 quad-DAC throttle output over I2C, stepper motor steering with limit switch protection, and linear actuator brake control with position feedback.
+          </p>
+          <p>
+            A four-layer E-STOP architecture and 500ms hardware watchdog have maintained zero safety incidents through 50+ hours of autonomous driving. The entire system runs on a custom PCB designed in KiCad with SN65HVD230 CAN transceivers, TXB0104D level shifters, and Traco DC-DC converters.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">CAN Bus Architecture</h2>
+
+        <div class="content has-text-justified">
+          <img src="../images/placeholder.svg" alt="CAN bus architecture" style="width:100%; border-radius:10px; margin-bottom:1em;">
+          <p>
+            The distributed system coordinates 4 specialized microcontroller nodes. A <strong>Master CAN Controller</strong> runs at 100 Hz and arbitrates commands from the autonomy stack, teleoperation interfaces, and the E-STOP system. A <strong>throttle node</strong> drives an MCP4728 quad DAC over I2C for precise voltage output (0.3V&ndash;4.0V) with drive mode selection. A <strong>steering node</strong> controls a stepper motor with analog encoder feedback and non-blocking pulse generation. A <strong>brake node</strong> implements closed-loop linear actuator control with stroke calibration. Custom CAN message protocol (0x100/0x200/0x300) provides JSON telemetry and ASCII command interface for remote monitoring.
+          </p>
+        </div>
+
+        <h2 class="title is-3">Safety System</h2>
+
+        <div class="content has-text-justified">
+          <img src="../images/placeholder.svg" alt="Safety system" style="width:100%; border-radius:10px; margin-bottom:1em;">
+          <p>
+            The four-layer E-STOP architecture provides defense in depth: a physical kill switch, CAN-level software E-STOP, watchdog timeout failsafe, and per-actuator safety limits. If any node loses CAN communication for more than 500ms, the hardware watchdog triggers automatic emergency braking across the entire network. This architecture has achieved &lt;200ms emergency response time and zero safety incidents over 50+ hours of autonomous operation.
+          </p>
+        </div>
+
+        <h2 class="title is-3">Custom PCB Design</h2>
+
+        <div class="content has-text-justified">
+          <img src="../images/placeholder.svg" alt="PCB design" style="width:100%; border-radius:10px; margin-bottom:1em;">
+          <p>
+            The custom PCB designed in KiCad integrates SN65HVD230 CAN transceivers for reliable differential signaling, TXB0104D level shifters for mixed-voltage logic interfacing, and Traco DC-DC converters for power regulation. The board provides clean power distribution, sensor connector breakouts, and a compact form factor for mounting in the vehicle.
+          </p>
+        </div>
+
+        <h2 class="title is-3">CAN Bus Cybersecurity</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            A multi-layered cybersecurity framework hardens the CAN bus network against injection attacks, replay attacks, and unauthorized access. The defense-in-depth security architecture layers message authentication, anomaly detection, and fail-safe isolation onto the CAN bus. This work was presented as an <strong>Oral Presentation</strong> at the Southern California Conference for Undergraduate Research (SCCUR 2025).
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@misc{ghasemi2025cansec,
+  author       = {Ghasemi, Parsa and Knox, Aspen},
+  title        = {Defense-in-Depth Security Architecture for
+                  CAN-Based AV Control Systems},
+  year         = {2025},
+  howpublished = {Oral Presentation, Southern California Conference
+                  for Undergraduate Research (SCCUR)}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is based on the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> project page template, licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
