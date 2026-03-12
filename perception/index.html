@@ -171,7 +171,7 @@
         <h2 class="title is-3">Sensor Fusion Pipeline</h2>
 
         <div class="content has-text-justified">
-          <img src="../images/perception/ekf-fusion-plot.svg" alt="EKF sensor fusion comparison: GPS noisy, IMU drifting, fused output accurate" style="width:100%; border-radius:10px; margin-bottom:1em;">
+          <img src="../images/perception/ekf-fusion-plot.svg" alt="EKF sensor fusion comparison: GPS noisy, IMU drifting, fused output accurate" style="max-width:100%; border-radius:10px; margin-bottom:1em; display:block; margin-left:auto; margin-right:auto;">
           <p>
             The sensor fusion pipeline processes Xsens MTi-680G data at 100 Hz using multi-threaded architecture with thread-safe ring buffers. Quaternion-to-Euler transformations convert IMU orientation data for integration with GPS positioning. An Extended Kalman Filter fuses GPS and IMU measurements, with graceful degradation to IMU dead reckoning when GPS signal drops out&mdash;maintaining continuous pose estimation even in GPS-denied environments.
           </p>
@@ -180,7 +180,7 @@
         <h2 class="title is-3">Occupancy Grid Mapping</h2>
 
         <div class="content has-text-justified">
-          <img src="../images/perception/hero-occupancy-grid.gif" alt="Bayesian occupancy grid updating in RViz with temporal decay" style="width:100%; border-radius:10px; margin-bottom:1em;">
+          <img src="../images/perception/hero-occupancy-grid.gif" alt="Bayesian occupancy grid updating in RViz with temporal decay" style="max-width:100%; border-radius:10px; margin-bottom:1em; display:block; margin-left:auto; margin-right:auto;">
           <p>
             A probabilistic Bayesian occupancy grid uses log-odds representation for numerically stable belief updates. Bresenham raycasting efficiently traces sensor beams through the grid, clearing free space and marking obstacles. Temporal decay enables handling of dynamic obstacles&mdash;cells gradually return to unknown state when not actively observed. The grid achieves 0.2m resolution over 400m&sup2; coverage area, providing the planning layer with a reliable local map for obstacle avoidance.
           </p>
@@ -189,7 +189,7 @@
         <h2 class="title is-3">Bird's-Eye View Perception</h2>
 
         <div class="content has-text-justified">
-          <img src="../images/perception/bev-ipm.jpg" alt="Raw camera view transformed to bird's-eye view via inverse perspective mapping" style="width:100%; border-radius:10px; margin-bottom:1em;">
+          <img src="../images/perception/bev-ipm.jpg" alt="Raw camera view transformed to bird's-eye view via inverse perspective mapping" style="max-width:100%; border-radius:10px; margin-bottom:1em; display:block; margin-left:auto; margin-right:auto;">
           <p>
             The bird's-eye view (BEV) perception system uses inverse perspective mapping (IPM) to transform camera images from the perspective view to a ground-plane view at 15&ndash;30 FPS. This transformation provides a top-down representation that simplifies lane detection and drivable area estimation, complementing the LiDAR-based occupancy grid with visual road structure information.
           </p>
@@ -198,7 +198,7 @@
         <h2 class="title is-3">Sensor Integration</h2>
 
         <div class="content has-text-justified">
-          <img src="../images/perception/sensor-placement.svg" alt="Vehicle diagram with annotated sensor positions: LiDAR, cameras, IMU, GPS" style="width:100%; border-radius:10px; margin-bottom:1em;">
+          <img src="../images/perception/sensor-placement.svg" alt="Vehicle diagram with annotated sensor positions: LiDAR, cameras, IMU, GPS" style="max-width:100%; border-radius:10px; margin-bottom:1em; display:block; margin-left:auto; margin-right:auto;">
           <p>
             The perception system integrates a Velodyne VLP-16 LiDAR for 3D point clouds, Intel RealSense RGB-D cameras for depth and color imagery, USB cameras for additional viewpoints, and an Xsens MTi-680G IMU/GPS for positioning. A unified sensor abstraction layer provides consistent interfaces across all sensors, enabling modular development and easy integration of new sensor types.
           </p>

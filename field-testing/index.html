@@ -171,7 +171,7 @@
         <h2 class="title is-3">GPS Trail Mapping</h2>
 
         <div class="content has-text-justified">
-          <img src="../images/field-testing/hero-gps-trail.jpg" alt="784 GPS trail points overlaid on Cal Poly Pomona campus map" style="width:100%; border-radius:10px; margin-bottom:1em;">
+          <img src="../images/field-testing/hero-gps-trail.jpg" alt="784 GPS trail points overlaid on Cal Poly Pomona campus map" style="max-width:100%; border-radius:10px; margin-bottom:1em; display:block; margin-left:auto; margin-right:auto;">
           <p>
             GPS trail mapping captures 784 waypoints during autonomous operation, visualized using Folium on campus map tiles. Comparison of planned routes with actual GPS traces reveals path-following accuracy and identifies areas where the navigation system deviates from intended trajectories. This data drives iterative improvements to the Pure Pursuit controller's lookahead parameters and the DWA planner's cost functions.
           </p>
@@ -180,7 +180,7 @@
         <h2 class="title is-3">Telemetry Analysis</h2>
 
         <div class="content has-text-justified">
-          <img src="../images/field-testing/telemetry-plots.svg" alt="Time-series telemetry plots showing speed, steering angle, and GPS position" style="width:100%; border-radius:10px; margin-bottom:1em;">
+          <img src="../images/field-testing/telemetry-plots.svg" alt="Time-series telemetry plots showing speed, steering angle, and GPS position" style="max-width:100%; border-radius:10px; margin-bottom:1em; display:block; margin-left:auto; margin-right:auto;">
           <p>
             The data acquisition system logs 2,581 telemetry rows at 20 Hz, capturing vehicle speed, steering angle, throttle position, brake state, GPS coordinates, IMU orientation, and system health metrics. Dual-camera synchronization at 30 FPS provides time-aligned visual records of every test run. Post-test analysis of telemetry data identifies control system performance characteristics and informs parameter tuning.
           </p>
@@ -189,7 +189,7 @@
         <h2 class="title is-3">Safety Validation</h2>
 
         <div class="content has-text-justified">
-          <img src="../images/field-testing/safety-dashboard.jpg" alt="Safety metrics dashboard showing E-STOP response times and incident log" style="width:100%; border-radius:10px; margin-bottom:1em;">
+          <img src="../images/field-testing/safety-dashboard.jpg" alt="Safety metrics dashboard showing E-STOP response times and incident log" style="max-width:100%; border-radius:10px; margin-bottom:1em; display:block; margin-left:auto; margin-right:auto;">
           <p>
             The four-layer E-STOP architecture has maintained zero safety incidents across 50+ hours of autonomous testing. Safety validation includes measurement of emergency response times (sub-200ms from trigger to full stop), watchdog timeout behavior verification, and systematic testing of failure modes across the distributed CAN network. Every test session is logged with safety metrics for ongoing risk assessment.
           </p>

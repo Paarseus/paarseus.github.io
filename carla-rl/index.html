@@ -134,7 +134,7 @@
     <div class="hero-body">
       <img src="../images/carla-rl/hero-carla.jpg"
            alt="CARLA simulator screenshot with reward curve overlay"
-           class="publication-image">
+           style="max-width:100%; border-radius:10px; margin-bottom:1em; display:block; margin-left:auto; margin-right:auto;">
       <h2 class="subtitle has-text-centered">
         A modular Gymnasium wrapper around CARLA that hits 100 steps/sec with sub-10 ms latency and zero memory leaks.
       </h2>
@@ -177,7 +177,7 @@
         <div class="content has-text-justified">
           <img src="../images/carla-rl/manager-architecture.svg"
                alt="7-module manager architecture with factory pattern sensor creation"
-               class="publication-image">
+               style="max-width:100%; border-radius:10px; margin-bottom:1em; display:block; margin-left:auto; margin-right:auto;">
           <p>
             The environment is organized into 7 specialized managers: World Manager, Vehicle Manager, Sensor
             Manager, Observation Manager, Reward Manager, Scenario Manager, and Event Manager. Each manager
@@ -197,7 +197,7 @@
         <div class="content has-text-justified">
           <img src="../images/carla-rl/training-results.svg"
                alt="Training reward curve showing PPO convergence and flat memory usage line"
-               class="publication-image">
+               style="max-width:100%; border-radius:10px; margin-bottom:1em; display:block; margin-left:auto; margin-right:auto;">
           <p>
             The training pipeline achieves 100 steps/sec throughput by minimizing Python-CARLA communication
             overhead and batching sensor queries. Multi-sensor latency stays below 10ms through careful
@@ -218,7 +218,7 @@
         <div class="content has-text-justified">
           <img src="../images/carla-rl/observation-space.jpg"
                alt="Multi-modal observation combining RGB camera, state vector, and navigation data"
-               class="publication-image">
+               style="max-width:100%; border-radius:10px; margin-bottom:1em; display:block; margin-left:auto; margin-right:auto;">
           <p>
             The observation space combines RGB camera images, vehicle state vectors (speed, acceleration,
             steering angle), and navigation data (waypoints, distance to goal) into a multi-modal input
@@ -239,7 +239,7 @@
         <div class="content has-text-justified">
           <img src="../images/carla-rl/hero-carla.jpg"
                alt="CARLA environment showing trained agent following lane"
-               class="publication-image">
+               style="max-width:100%; border-radius:10px; margin-bottom:1em; display:block; margin-left:auto; margin-right:auto;">
           <p>
             A PPO agent trained for 50,000 steps achieves stable lane-following behavior on the CARLA Town01
             map. The agent maintains center-lane driving through curves and intersections with minimal lateral

@@ -171,7 +171,7 @@
         <h2 class="title is-3">ROS2 Nav2 Integration</h2>
 
         <div class="content has-text-justified">
-          <img src="../images/navigation/ros2-node-graph.png" alt="ROS2 node graph from rqt_graph showing Nav2 integration" style="width:100%; border-radius:10px; margin-bottom:1em;">
+          <img src="../images/navigation/ros2-node-graph.png" alt="ROS2 node graph from rqt_graph showing Nav2 integration" style="max-width:100%; border-radius:10px; margin-bottom:1em; display:block; margin-left:auto; margin-right:auto;">
           <p>
             The navigation system is built on ROS2 Nav2 with SmacPlannerHybrid for kinematically feasible global path planning. Custom lifecycle management ensures clean startup and shutdown of all navigation components. A modular launch architecture with 8 configurable launch files enables selective activation of sensor, localization, and navigation subsystems. The system interfaces with robot_localization for EKF-based pose estimation and tf2 for coordinate frame management.
           </p>
@@ -180,7 +180,7 @@
         <h2 class="title is-3">Dynamic Window Approach</h2>
 
         <div class="content has-text-justified">
-          <img src="../images/navigation/dwa-trajectories.svg" alt="DWA trajectory optimization showing sampled trajectories with cost coloring" style="width:100%; border-radius:10px; margin-bottom:1em;">
+          <img src="../images/navigation/dwa-trajectories.svg" alt="DWA trajectory optimization showing sampled trajectories with cost coloring" style="max-width:100%; border-radius:10px; margin-bottom:1em; display:block; margin-left:auto; margin-right:auto;">
           <p>
             The local planner implements a Dynamic Window Approach adapted for Ackermann-steering vehicles. A kinematic bicycle model constrains the trajectory search space to physically feasible motions. Multi-objective trajectory optimization balances goal heading, path clearance, and velocity to select the best trajectory at each planning cycle. The planner accounts for the vehicle's minimum turning radius and maximum steering rate.
           </p>
@@ -189,7 +189,7 @@
         <h2 class="title is-3">Pure Pursuit Controller</h2>
 
         <div class="content has-text-justified">
-          <img src="../images/navigation/hero-pure-pursuit.gif" alt="Pure Pursuit path following with adaptive lookahead distance in RViz" style="width:100%; border-radius:10px; margin-bottom:1em;">
+          <img src="../images/navigation/hero-pure-pursuit.gif" alt="Pure Pursuit path following with adaptive lookahead distance in RViz" style="max-width:100%; border-radius:10px; margin-bottom:1em; display:block; margin-left:auto; margin-right:auto;">
           <p>
             Path following uses a Pure Pursuit controller with a geometric steering law that computes the required steering angle to reach a lookahead point on the planned path. The lookahead distance adapts based on vehicle speed&mdash;longer at higher speeds for stability, shorter at low speeds for precision. The controller interfaces with the distributed CAN bus control system to execute steering commands at 100 Hz.
           </p>
@@ -198,7 +198,7 @@
         <h2 class="title is-3">GPS-Based Routing</h2>
 
         <div class="content has-text-justified">
-          <img src="../images/navigation/osmn-route.jpg" alt="OpenStreetMap route computed with Dijkstra showing waypoints on campus map" style="width:100%; border-radius:10px; margin-bottom:1em;">
+          <img src="../images/navigation/osmn-route.jpg" alt="OpenStreetMap route computed with Dijkstra showing waypoints on campus map" style="max-width:100%; border-radius:10px; margin-bottom:1em; display:block; margin-left:auto; margin-right:auto;">
           <p>
             The route planner queries OpenStreetMap data via OSMnx to compute Dijkstra shortest paths between GPS coordinates. Waypoints are extracted from the computed route and fed to the Nav2 NavigateThroughPoses action server. This enables the vehicle to navigate real road networks using GPS positioning, bridging the gap between global GPS-level routing and local sensor-based navigation.
           </p>

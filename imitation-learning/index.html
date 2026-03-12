@@ -138,7 +138,7 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <img src="../images/placeholder.svg" alt="Side-by-side RGB, thermal, and CAN data during day and night driving" style="width:100%; border-radius:10px;">
+      <img src="../images/imitation-learning/hero.jpg" alt="Thermal infrared camera view of campus driving route at night" style="width:100%; border-radius:10px;">
       <h2 class="subtitle has-text-centered">
         Fusing RGB, thermal, and vehicle telemetry into an imitation learning model that drives itself day or night with only 3 manual interventions.
       </h2>
@@ -176,7 +176,7 @@
         <h2 class="title is-3">Data Pipeline</h2>
 
         <div class="content has-text-justified">
-          <img src="../images/imitation-learning/data-pipeline.svg" alt="Data pipeline: 3 sensor modalities synchronized into training frames" style="width:100%; border-radius:10px; margin-bottom:1em;">
+          <img src="../images/imitation-learning/data-pipeline.svg" alt="Data pipeline: 3 sensor modalities synchronized into training frames" style="max-width:100%; border-radius:10px; margin-bottom:1em; display:block; margin-left:auto; margin-right:auto;">
           <p>
             The data pipeline synchronizes three heterogeneous sensor streams: an RGB camera at 30 Hz providing visual context, a thermal camera at 30 Hz capturing illumination-invariant features, and CAN bus telemetry at 20 Hz recording the expert driver's steering and throttle commands. All streams are temporally aligned and stored as synchronized training frames. The dataset captures diverse lighting conditions including direct sunlight, shade, dusk, and nighttime driving.
           </p>
@@ -185,7 +185,7 @@
         <h2 class="title is-3">Multimodal Perception</h2>
 
         <div class="content has-text-justified">
-          <img src="../images/imitation-learning/model-arch.svg" alt="Multimodal fusion network architecture diagram" style="width:100%; border-radius:10px; margin-bottom:1em;">
+          <img src="../images/imitation-learning/model-arch.svg" alt="Multimodal fusion network architecture diagram" style="max-width:100%; border-radius:10px; margin-bottom:1em; display:block; margin-left:auto; margin-right:auto;">
           <p>
             The perception pipeline fuses RGB and thermal camera inputs into a joint representation that remains stable across lighting conditions. Where RGB features degrade at night, thermal features provide consistent road and obstacle signatures. The imitation learning model maps this fused representation directly to vehicle control commands, learning the expert's driving policy end-to-end without handcrafted rules.
           </p>
@@ -194,7 +194,7 @@
         <h2 class="title is-3">Results</h2>
 
         <div class="content has-text-justified">
-          <img src="../images/imitation-learning/results.jpg" alt="Campus route map with intervention points marked" style="width:100%; border-radius:10px; margin-bottom:1em;">
+          <img src="../images/imitation-learning/results.jpg" alt="Campus route map with intervention points marked" style="max-width:100%; border-radius:10px; margin-bottom:1em; display:block; margin-left:auto; margin-right:auto;">
           <p>
             The system was evaluated on a 0.3-mile campus route under varying lighting conditions. The trained model achieved autonomous navigation with only 3 manual interventions, demonstrating reliable day-to-night generalization. This work was presented as a poster at the Southern California AI and Robotics Symposium (SCAIR 2025).
           </p>

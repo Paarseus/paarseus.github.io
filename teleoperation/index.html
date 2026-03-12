@@ -169,7 +169,7 @@
         <h2 class="title is-3">WebSocket Architecture</h2>
 
         <div class="content has-text-justified">
-          <img src="../images/teleoperation/websocket-arch.svg" alt="WebSocket bridge architecture connecting operator interface to CAN master controller" style="width:100%; border-radius:10px; margin-bottom:1em;">
+          <img src="../images/teleoperation/websocket-arch.png" alt="WebSocket bridge architecture connecting operator interface to CAN master controller" style="max-width:100%; border-radius:10px; margin-bottom:1em; display:block; margin-left:auto; margin-right:auto;">
           <p>
             The teleoperation system uses a WebSocket bridge to stream control commands from remote operator interfaces to the vehicle's CAN master controller. Commands are serialized as JSON messages and transmitted over a Tailscale VPN connection, providing secure remote access without exposing the vehicle's network. The WebSocket server on the vehicle receives commands and translates them into CAN bus messages at the master controller's 100 Hz update rate.
           </p>
@@ -178,7 +178,7 @@
         <h2 class="title is-3">Video Streaming</h2>
 
         <div class="content has-text-justified">
-          <img src="../images/teleoperation/hero-split-screen.jpg" alt="Split-screen operator view with front and rear vehicle cameras" style="width:100%; border-radius:10px; margin-bottom:1em;">
+          <img src="../images/teleoperation/hero-split-screen.jpg" alt="Split-screen operator view with front and rear vehicle cameras" style="max-width:100%; border-radius:10px; margin-bottom:1em; display:block; margin-left:auto; margin-right:auto;">
           <p>
             WebRTC provides low-latency live video streaming from multiple vehicle cameras to the operator interface. The system supports configurable camera selection and resolution, with adaptive bitrate based on network conditions. The operator WebUI displays camera feeds alongside vehicle telemetry data including speed, steering angle, and system health indicators.
           </p>
@@ -187,7 +187,7 @@
         <h2 class="title is-3">Voice Control</h2>
 
         <div class="content has-text-justified">
-          <img src="../images/teleoperation/voice-pipeline.svg" alt="Voice control pipeline: microphone to Whisper to command parser to CAN bus" style="width:100%; border-radius:10px; margin-bottom:1em;">
+          <img src="../images/teleoperation/voice-pipeline.svg" alt="Voice control pipeline: microphone to Whisper to command parser to CAN bus" style="max-width:100%; border-radius:10px; margin-bottom:1em; display:block; margin-left:auto; margin-right:auto;">
           <p>
             Voice control runs OpenAI's Whisper model on-device for speech-to-text conversion, eliminating cloud dependency and latency. Recognized commands are parsed into vehicle control actions (forward, stop, turn left/right, speed up/slow down). The voice pipeline includes confirmation feedback and safety constraints that limit maximum speed and require explicit confirmation for potentially dangerous maneuvers.
           </p>
@@ -196,7 +196,7 @@
         <h2 class="title is-3">Priority Arbitration</h2>
 
         <div class="content has-text-justified">
-          <img src="../images/teleoperation/priority-state-machine.svg" alt="Input priority state machine: Simchair highest, phone middle, voice lowest" style="width:100%; border-radius:10px; margin-bottom:1em;">
+          <img src="../images/teleoperation/priority-state-machine.svg" alt="Input priority state machine: Simchair highest, phone middle, voice lowest" style="max-width:100%; border-radius:10px; margin-bottom:1em; display:block; margin-left:auto; margin-right:auto;">
           <p>
             When multiple input sources compete for vehicle control, a priority arbitration system ensures safe behavior. The simchair has highest priority as the primary operator interface, followed by the phone WebUI, with voice commands at the lowest priority. Input transitions include timeout-based fallback&mdash;if the active input source stops sending commands, control gracefully transfers to the next available source or triggers an emergency stop.
           </p>
