@@ -3,19 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Multimodal imitation learning fusing RGB, thermal, and CAN data for illumination-robust autonomous driving.">
-  <meta name="keywords" content="Imitation Learning, Autonomous Driving, Multimodal, Thermal Camera">
+        content="2,581 telemetry rows, 784 GPS trail points, and 50+ hours of autonomous testing with zero safety incidents.">
+  <meta name="keywords" content="field testing, validation, telemetry, data acquisition, safety, GPS">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Multimodal Imitation Learning for Day-Night Driving — Parsa Ghasemi</title>
+  <title>Field Testing & Validation — Parsa Ghasemi</title>
 
-  <meta property="og:title" content="Multimodal Imitation Learning for Day-Night Driving — Parsa Ghasemi">
-  <meta property="og:description" content="Fusing RGB, thermal, and CAN data for illumination-robust autonomous driving with only 3 interventions over 0.3 miles.">
-  <meta property="og:image" content="https://paarseus.github.io/images/imitation-learning/hero.jpg">
-  <meta property="og:url" content="https://paarseus.github.io/imitation-learning/">
+  <meta property="og:title" content="Field Testing & Validation — Parsa Ghasemi">
+  <meta property="og:description" content="2,581 telemetry rows, 784 GPS trail points, and 50+ hours of autonomous testing with zero safety incidents.">
+  <meta property="og:image" content="https://paarseus.github.io/images/field-testing/hero-gps-trail.jpg">
+  <meta property="og:url" content="https://paarseus.github.io/field-testing/">
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
-
   <link rel="stylesheet" href="../static/css/bulma.min.css">
   <link rel="stylesheet" href="../static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="../static/css/bulma-slider.min.css">
@@ -97,12 +96,12 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Simplified Multimodal Imitation Learning for Day&ndash;Night Autonomous Driving</h1>
+          <h1 class="title is-1 publication-title">Field Testing & Validation</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              Aspen Knox<sup>1</sup>,</span>
+              <a href="https://paarseus.github.io/">Parsa Ghasemi</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="https://paarseus.github.io/">Parsa Ghasemi</a><sup>1</sup>
+              Behnam Bahr<sup>1</sup>
             </span>
           </div>
 
@@ -111,19 +110,18 @@
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="publication-venue">SCAIR, 2025</span>
+            <span class="publication-venue">Part of DRIVE Platform</span>
           </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
-              <!-- PDF Link. -->
               <span class="link-block">
-                <a href="../resume/Simplified-Multimodal-Imitation-Learning-for-Day%E2%80%93Night-Autonomous-Driving.pdf"
+                <a href="https://github.com/Paarseus/AVROS"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
+                      <i class="fab fa-github"></i>
                   </span>
-                  <span>Paper</span>
+                  <span>AVROS</span>
                 </a>
               </span>
             </div>
@@ -138,9 +136,9 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <img src="../images/placeholder.svg" alt="Side-by-side RGB, thermal, and CAN data during day and night driving" style="width:100%; border-radius:10px;">
+      <img src="../images/field-testing/hero-gps-trail.jpg" alt="784 GPS trail points overlaid on campus map" style="width:100%; border-radius:10px;">
       <h2 class="subtitle has-text-centered">
-        Fusing RGB, thermal, and vehicle telemetry into an imitation learning model that drives itself day or night with only 3 manual interventions.
+        Systematic field testing with GPS trail mapping, telemetry analysis, and safety validation across 50+ hours of autonomous operation.
       </h2>
     </div>
   </div>
@@ -155,10 +153,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We present a multimodal imitation learning approach that fuses RGB camera (30 Hz), thermal camera (30 Hz), and CAN bus telemetry (20 Hz) to enable autonomous driving across varying lighting conditions. Trained on 50,000+ synchronized frames collected on a campus route, the model learns to generalize driving behavior from day to night without explicit domain adaptation.
-          </p>
-          <p>
-            The system achieves autonomous navigation with only 3 manual interventions over a 0.3-mile campus route, demonstrating that simple sensor fusion with imitation learning can produce robust illumination-invariant driving policies.
+            We present the field testing and validation methodology for a full-scale autonomous vehicle platform. The system has been validated over 50+ hours of autonomous operation with zero safety incidents. A comprehensive data acquisition pipeline logs 2,581 telemetry rows at 20 Hz with dual-camera synchronization at 30 FPS. GPS trail mapping with 784 waypoints enables comparison of planned versus actual vehicle trajectories. The four-layer E-STOP architecture achieves sub-200ms emergency response time across all operating conditions.
           </p>
         </div>
       </div>
@@ -173,51 +168,36 @@
 
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Data Pipeline</h2>
+        <h2 class="title is-3">GPS Trail Mapping</h2>
 
         <div class="content has-text-justified">
-          <img src="../images/imitation-learning/data-pipeline.svg" alt="Data pipeline: 3 sensor modalities synchronized into training frames" style="width:100%; border-radius:10px; margin-bottom:1em;">
+          <img src="../images/field-testing/hero-gps-trail.jpg" alt="784 GPS trail points overlaid on Cal Poly Pomona campus map" style="width:100%; border-radius:10px; margin-bottom:1em;">
           <p>
-            The data pipeline synchronizes three heterogeneous sensor streams: an RGB camera at 30 Hz providing visual context, a thermal camera at 30 Hz capturing illumination-invariant features, and CAN bus telemetry at 20 Hz recording the expert driver's steering and throttle commands. All streams are temporally aligned and stored as synchronized training frames. The dataset captures diverse lighting conditions including direct sunlight, shade, dusk, and nighttime driving.
+            GPS trail mapping captures 784 waypoints during autonomous operation, visualized using Folium on campus map tiles. Comparison of planned routes with actual GPS traces reveals path-following accuracy and identifies areas where the navigation system deviates from intended trajectories. This data drives iterative improvements to the Pure Pursuit controller's lookahead parameters and the DWA planner's cost functions.
           </p>
         </div>
 
-        <h2 class="title is-3">Multimodal Perception</h2>
+        <h2 class="title is-3">Telemetry Analysis</h2>
 
         <div class="content has-text-justified">
-          <img src="../images/imitation-learning/model-arch.svg" alt="Multimodal fusion network architecture diagram" style="width:100%; border-radius:10px; margin-bottom:1em;">
+          <img src="../images/field-testing/telemetry-plots.svg" alt="Time-series telemetry plots showing speed, steering angle, and GPS position" style="width:100%; border-radius:10px; margin-bottom:1em;">
           <p>
-            The perception pipeline fuses RGB and thermal camera inputs into a joint representation that remains stable across lighting conditions. Where RGB features degrade at night, thermal features provide consistent road and obstacle signatures. The imitation learning model maps this fused representation directly to vehicle control commands, learning the expert's driving policy end-to-end without handcrafted rules.
+            The data acquisition system logs 2,581 telemetry rows at 20 Hz, capturing vehicle speed, steering angle, throttle position, brake state, GPS coordinates, IMU orientation, and system health metrics. Dual-camera synchronization at 30 FPS provides time-aligned visual records of every test run. Post-test analysis of telemetry data identifies control system performance characteristics and informs parameter tuning.
           </p>
         </div>
 
-        <h2 class="title is-3">Results</h2>
+        <h2 class="title is-3">Safety Validation</h2>
 
         <div class="content has-text-justified">
-          <img src="../images/imitation-learning/results.jpg" alt="Campus route map with intervention points marked" style="width:100%; border-radius:10px; margin-bottom:1em;">
+          <img src="../images/field-testing/safety-dashboard.jpg" alt="Safety metrics dashboard showing E-STOP response times and incident log" style="width:100%; border-radius:10px; margin-bottom:1em;">
           <p>
-            The system was evaluated on a 0.3-mile campus route under varying lighting conditions. The trained model achieved autonomous navigation with only 3 manual interventions, demonstrating reliable day-to-night generalization. This work was presented as a poster at the Southern California AI and Robotics Symposium (SCAIR 2025).
+            The four-layer E-STOP architecture has maintained zero safety incidents across 50+ hours of autonomous testing. Safety validation includes measurement of emergency response times (sub-200ms from trigger to full stop), watchdog timeout behavior verification, and systematic testing of failure modes across the distributed CAN network. Every test session is logged with safety metrics for ongoing risk assessment.
           </p>
         </div>
 
       </div>
     </div>
 
-  </div>
-</section>
-
-
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@article{knox2025imitation,
-  author = {Knox, Aspen and Ghasemi, Parsa},
-  title  = {Simplified Multimodal Imitation Learning for
-            Day--Night Autonomous Driving},
-  year   = {2025},
-  note   = {Poster presentation at the Southern California
-            AI and Robotics Symposium (SCAIR)}
-}</code></pre>
   </div>
 </section>
 

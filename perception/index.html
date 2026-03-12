@@ -3,19 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Multimodal imitation learning fusing RGB, thermal, and CAN data for illumination-robust autonomous driving.">
-  <meta name="keywords" content="Imitation Learning, Autonomous Driving, Multimodal, Thermal Camera">
+        content="Multi-threaded GPS/RTK/IMU sensor fusion, Bayesian occupancy grid mapping, and bird's-eye view perception for autonomous vehicles.">
+  <meta name="keywords" content="sensor fusion, EKF, occupancy grid, Bayesian, LIDAR, camera, GPS/IMU, Velodyne, RealSense">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Multimodal Imitation Learning for Day-Night Driving — Parsa Ghasemi</title>
+  <title>Multi-Sensor Perception Pipeline — Parsa Ghasemi</title>
 
-  <meta property="og:title" content="Multimodal Imitation Learning for Day-Night Driving — Parsa Ghasemi">
-  <meta property="og:description" content="Fusing RGB, thermal, and CAN data for illumination-robust autonomous driving with only 3 interventions over 0.3 miles.">
-  <meta property="og:image" content="https://paarseus.github.io/images/imitation-learning/hero.jpg">
-  <meta property="og:url" content="https://paarseus.github.io/imitation-learning/">
+  <meta property="og:title" content="Multi-Sensor Perception Pipeline — Parsa Ghasemi">
+  <meta property="og:description" content="Multi-threaded GPS/RTK/IMU sensor fusion, Bayesian occupancy grid mapping, and bird's-eye view perception for autonomous vehicles.">
+  <meta property="og:image" content="https://paarseus.github.io/images/perception/hero-occupancy-grid.gif">
+  <meta property="og:url" content="https://paarseus.github.io/perception/">
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
-
   <link rel="stylesheet" href="../static/css/bulma.min.css">
   <link rel="stylesheet" href="../static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="../static/css/bulma-slider.min.css">
@@ -97,12 +96,12 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Simplified Multimodal Imitation Learning for Day&ndash;Night Autonomous Driving</h1>
+          <h1 class="title is-1 publication-title">Multi-Sensor Perception Pipeline</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              Aspen Knox<sup>1</sup>,</span>
+              <a href="https://paarseus.github.io/">Parsa Ghasemi</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="https://paarseus.github.io/">Parsa Ghasemi</a><sup>1</sup>
+              Behnam Bahr<sup>1</sup>
             </span>
           </div>
 
@@ -111,19 +110,18 @@
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="publication-venue">SCAIR, 2025</span>
+            <span class="publication-venue">Part of DRIVE Platform</span>
           </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
-              <!-- PDF Link. -->
               <span class="link-block">
-                <a href="../resume/Simplified-Multimodal-Imitation-Learning-for-Day%E2%80%93Night-Autonomous-Driving.pdf"
+                <a href="https://github.com/Paarseus/AVROS"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
+                      <i class="fab fa-github"></i>
                   </span>
-                  <span>Paper</span>
+                  <span>AVROS</span>
                 </a>
               </span>
             </div>
@@ -138,9 +136,9 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <img src="../images/placeholder.svg" alt="Side-by-side RGB, thermal, and CAN data during day and night driving" style="width:100%; border-radius:10px;">
+      <img src="../images/perception/hero-occupancy-grid.gif" alt="Occupancy grid updating in real-time in RViz" style="width:100%; border-radius:10px;">
       <h2 class="subtitle has-text-centered">
-        Fusing RGB, thermal, and vehicle telemetry into an imitation learning model that drives itself day or night with only 3 manual interventions.
+        Multi-threaded sensor fusion, Bayesian occupancy grid mapping, and bird's-eye view perception for real-time autonomous navigation.
       </h2>
     </div>
   </div>
@@ -155,10 +153,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We present a multimodal imitation learning approach that fuses RGB camera (30 Hz), thermal camera (30 Hz), and CAN bus telemetry (20 Hz) to enable autonomous driving across varying lighting conditions. Trained on 50,000+ synchronized frames collected on a campus route, the model learns to generalize driving behavior from day to night without explicit domain adaptation.
-          </p>
-          <p>
-            The system achieves autonomous navigation with only 3 manual interventions over a 0.3-mile campus route, demonstrating that simple sensor fusion with imitation learning can produce robust illumination-invariant driving policies.
+            We present a multi-sensor perception pipeline for a full-scale autonomous vehicle. The system fuses data from a Velodyne VLP-16 LiDAR, Intel RealSense RGB-D camera, and Xsens MTi-680G IMU at 100 Hz with thread-safe ring buffers and quaternion-to-Euler transformations. A probabilistic Bayesian occupancy grid with log-odds representation and Bresenham raycasting provides 0.2m resolution mapping over 400m&sup2; coverage. Bird's-eye view perception using inverse perspective mapping enables real-time camera-to-ground-plane transformations at 15&ndash;30 FPS. An Extended Kalman Filter provides GPS/IMU fusion with graceful degradation to IMU dead reckoning during GPS dropout.
           </p>
         </div>
       </div>
@@ -173,51 +168,45 @@
 
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Data Pipeline</h2>
+        <h2 class="title is-3">Sensor Fusion Pipeline</h2>
 
         <div class="content has-text-justified">
-          <img src="../images/imitation-learning/data-pipeline.svg" alt="Data pipeline: 3 sensor modalities synchronized into training frames" style="width:100%; border-radius:10px; margin-bottom:1em;">
+          <img src="../images/perception/ekf-fusion-plot.svg" alt="EKF sensor fusion comparison: GPS noisy, IMU drifting, fused output accurate" style="width:100%; border-radius:10px; margin-bottom:1em;">
           <p>
-            The data pipeline synchronizes three heterogeneous sensor streams: an RGB camera at 30 Hz providing visual context, a thermal camera at 30 Hz capturing illumination-invariant features, and CAN bus telemetry at 20 Hz recording the expert driver's steering and throttle commands. All streams are temporally aligned and stored as synchronized training frames. The dataset captures diverse lighting conditions including direct sunlight, shade, dusk, and nighttime driving.
+            The sensor fusion pipeline processes Xsens MTi-680G data at 100 Hz using multi-threaded architecture with thread-safe ring buffers. Quaternion-to-Euler transformations convert IMU orientation data for integration with GPS positioning. An Extended Kalman Filter fuses GPS and IMU measurements, with graceful degradation to IMU dead reckoning when GPS signal drops out&mdash;maintaining continuous pose estimation even in GPS-denied environments.
           </p>
         </div>
 
-        <h2 class="title is-3">Multimodal Perception</h2>
+        <h2 class="title is-3">Occupancy Grid Mapping</h2>
 
         <div class="content has-text-justified">
-          <img src="../images/imitation-learning/model-arch.svg" alt="Multimodal fusion network architecture diagram" style="width:100%; border-radius:10px; margin-bottom:1em;">
+          <img src="../images/perception/hero-occupancy-grid.gif" alt="Bayesian occupancy grid updating in RViz with temporal decay" style="width:100%; border-radius:10px; margin-bottom:1em;">
           <p>
-            The perception pipeline fuses RGB and thermal camera inputs into a joint representation that remains stable across lighting conditions. Where RGB features degrade at night, thermal features provide consistent road and obstacle signatures. The imitation learning model maps this fused representation directly to vehicle control commands, learning the expert's driving policy end-to-end without handcrafted rules.
+            A probabilistic Bayesian occupancy grid uses log-odds representation for numerically stable belief updates. Bresenham raycasting efficiently traces sensor beams through the grid, clearing free space and marking obstacles. Temporal decay enables handling of dynamic obstacles&mdash;cells gradually return to unknown state when not actively observed. The grid achieves 0.2m resolution over 400m&sup2; coverage area, providing the planning layer with a reliable local map for obstacle avoidance.
           </p>
         </div>
 
-        <h2 class="title is-3">Results</h2>
+        <h2 class="title is-3">Bird's-Eye View Perception</h2>
 
         <div class="content has-text-justified">
-          <img src="../images/imitation-learning/results.jpg" alt="Campus route map with intervention points marked" style="width:100%; border-radius:10px; margin-bottom:1em;">
+          <img src="../images/perception/bev-ipm.jpg" alt="Raw camera view transformed to bird's-eye view via inverse perspective mapping" style="width:100%; border-radius:10px; margin-bottom:1em;">
           <p>
-            The system was evaluated on a 0.3-mile campus route under varying lighting conditions. The trained model achieved autonomous navigation with only 3 manual interventions, demonstrating reliable day-to-night generalization. This work was presented as a poster at the Southern California AI and Robotics Symposium (SCAIR 2025).
+            The bird's-eye view (BEV) perception system uses inverse perspective mapping (IPM) to transform camera images from the perspective view to a ground-plane view at 15&ndash;30 FPS. This transformation provides a top-down representation that simplifies lane detection and drivable area estimation, complementing the LiDAR-based occupancy grid with visual road structure information.
+          </p>
+        </div>
+
+        <h2 class="title is-3">Sensor Integration</h2>
+
+        <div class="content has-text-justified">
+          <img src="../images/perception/sensor-placement.svg" alt="Vehicle diagram with annotated sensor positions: LiDAR, cameras, IMU, GPS" style="width:100%; border-radius:10px; margin-bottom:1em;">
+          <p>
+            The perception system integrates a Velodyne VLP-16 LiDAR for 3D point clouds, Intel RealSense RGB-D cameras for depth and color imagery, USB cameras for additional viewpoints, and an Xsens MTi-680G IMU/GPS for positioning. A unified sensor abstraction layer provides consistent interfaces across all sensors, enabling modular development and easy integration of new sensor types.
           </p>
         </div>
 
       </div>
     </div>
 
-  </div>
-</section>
-
-
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@article{knox2025imitation,
-  author = {Knox, Aspen and Ghasemi, Parsa},
-  title  = {Simplified Multimodal Imitation Learning for
-            Day--Night Autonomous Driving},
-  year   = {2025},
-  note   = {Poster presentation at the Southern California
-            AI and Robotics Symposium (SCAIR)}
-}</code></pre>
   </div>
 </section>
 

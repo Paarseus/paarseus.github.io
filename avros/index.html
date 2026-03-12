@@ -6,7 +6,12 @@
         content="A full-scale autonomous vehicle platform built for $12K-15K, enabling undergraduate research across perception, planning, and control.">
   <meta name="keywords" content="Autonomous Vehicle, ROS2, Nav2, CAN Bus, Sensor Fusion">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>End-to-End Autonomous Vehicle Research Platform</title>
+  <title>End-to-End Autonomous Vehicle Research Platform — Parsa Ghasemi</title>
+
+  <meta property="og:title" content="End-to-End Autonomous Vehicle Research Platform — Parsa Ghasemi">
+  <meta property="og:description" content="A full-scale autonomous vehicle platform built for $12K-15K with 14,300+ LOC, ROS2 Nav2, and distributed CAN bus control.">
+  <meta property="og:image" content="https://paarseus.github.io/images/drive/hero.jpg">
+  <meta property="og:url" content="https://paarseus.github.io/avros/">
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
@@ -52,11 +57,32 @@
           <a class="navbar-item" href="../avros/">
             AV Platform
           </a>
+          <a class="navbar-item" href="../perception/">
+            Perception
+          </a>
+          <a class="navbar-item" href="../navigation/">
+            Navigation
+          </a>
+          <a class="navbar-item" href="../field-testing/">
+            Field Testing
+          </a>
           <a class="navbar-item" href="../control-system/">
             Control System
           </a>
+          <a class="navbar-item" href="../teleoperation/">
+            Teleoperation
+          </a>
           <a class="navbar-item" href="../imitation-learning/">
             Imitation Learning
+          </a>
+          <a class="navbar-item" href="../carla-rl/">
+            CARLA RL
+          </a>
+          <a class="navbar-item" href="../legged-robotics/">
+            Legged Robotics
+          </a>
+          <a class="navbar-item" href="../avpcb/">
+            AVPCB
           </a>
         </div>
       </div>
@@ -151,7 +177,7 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <img src="../images/placeholder.svg" alt="Vehicle platform" style="width:100%; border-radius:10px;">
+      <img src="../images/drive/hero.jpg" alt="Full-scale autonomous vehicle research platform, side angle view" style="width:100%; border-radius:10px;">
       <h2 class="subtitle has-text-centered">
         A full-scale autonomous vehicle built for under $15K&mdash;giving undergraduates hands-on experience with every layer of the autonomy stack.
       </h2>
@@ -189,7 +215,7 @@
         <h2 class="title is-3">System Architecture</h2>
 
         <div class="content has-text-justified">
-          <img src="../images/placeholder.svg" alt="System architecture" style="width:100%; border-radius:10px; margin-bottom:1em;">
+          <img src="../images/drive/architecture-diagram.svg" alt="C4 Level 2 architecture diagram showing perception, planning, control, and embedded layers" style="width:100%; border-radius:10px; margin-bottom:1em;">
           <p>
             The platform is organized into four layers. A <strong>perception layer</strong> fuses data from a Velodyne VLP-16 LiDAR, Intel RealSense RGB-D camera, and Xsens MTi-680G IMU into a unified sensor abstraction. A <strong>planning layer</strong> built on ROS2 Nav2 with SmacPlannerHybrid computes kinematically feasible paths, augmented by OSMnx/Dijkstra routing on real OpenStreetMap road networks. A <strong>control layer</strong> distributes steering, throttle, and brake commands across 4 Teensy 4.1 MCUs over CAN bus at 250 kbps with 20 Hz deterministic loops. A <strong>teleoperation layer</strong> provides simchair, phone WebUI, and voice control fallback through WebSocket and WebRTC.
           </p>
@@ -198,7 +224,7 @@
         <h2 class="title is-3">Navigation Stack</h2>
 
         <div class="content has-text-justified">
-          <img src="../images/placeholder.svg" alt="Navigation stack" style="width:100%; border-radius:10px; margin-bottom:1em;">
+          <img src="../images/drive/navigation-stack.svg" alt="ROS2 node graph showing Nav2 integration with sensor fusion and path planning" style="width:100%; border-radius:10px; margin-bottom:1em;">
           <p>
             The navigation system achieves centimeter-level positioning through a GPS/RTK/IMU fusion pipeline with EKF and graceful degradation. A probabilistic occupancy grid achieves 0.2m resolution over 400m&sup2; coverage using Bayesian log-odds and Bresenham raycasting. Path following uses a Dynamic Window Approach (DWA) with kinematic bicycle model and Pure Pursuit controller with adaptive speed-dependent lookahead. YOLOPv2 provides drivable area segmentation and lane detection on RealSense RGB-D frames.
           </p>

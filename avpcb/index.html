@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Custom PCB designed in KiCad integrating CAN transceivers, level shifters, and DC-DC converters for autonomous vehicle control.">
+  <meta name="keywords" content="KiCad, PCB, DC-DC, power distribution, schematic design">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="Custom Vehicle Control PCB — Parsa Ghasemi" />
+  <meta property="og:description" content="Custom PCB designed in KiCad integrating CAN transceivers, level shifters, and DC-DC converters for autonomous vehicle control." />
+  <meta property="og:image" content="https://paarseus.github.io/images/avpcb/hero-pcb.jpg" />
+  <meta property="og:url" content="https://paarseus.github.io/avpcb/" />
+
+  <title>Custom Vehicle Control PCB — Parsa Ghasemi</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/bulma.min.css">
+  <link rel="stylesheet" href="../static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="../static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="../static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="../static/css/index.css">
+  <link rel="icon" href="../images/favicon/favicon.ico">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="../static/js/fontawesome.all.min.js"></script>
+  <script src="../static/js/bulma-carousel.min.js"></script>
+  <script src="../static/js/bulma-slider.min.js"></script>
+  <script src="../static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://paarseus.github.io">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Projects
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="../avros/">
+            AV Platform
+          </a>
+          <a class="navbar-item" href="../perception/">
+            Perception
+          </a>
+          <a class="navbar-item" href="../navigation/">
+            Navigation
+          </a>
+          <a class="navbar-item" href="../field-testing/">
+            Field Testing
+          </a>
+          <a class="navbar-item" href="../control-system/">
+            Control System
+          </a>
+          <a class="navbar-item" href="../teleoperation/">
+            Teleoperation
+          </a>
+          <a class="navbar-item" href="../imitation-learning/">
+            Imitation Learning
+          </a>
+          <a class="navbar-item" href="../carla-rl/">
+            CARLA RL
+          </a>
+          <a class="navbar-item" href="../legged-robotics/">
+            Legged Robotics
+          </a>
+          <a class="navbar-item" href="../avpcb/">
+            AVPCB
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Custom Vehicle Control PCB</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://paarseus.github.io">Parsa Ghasemi</a><sup>1</sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Cal Poly Pomona</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/Paarseus/AVPCB"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>AVPCB</span>
+                </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="../images/avpcb/hero-pcb.jpg"
+           alt="KiCad 3D render of custom vehicle control PCB"
+           class="publication-image">
+      <h2 class="subtitle has-text-centered">
+        A custom PCB integrating CAN transceivers, level shifters, and DC-DC converters for the autonomous vehicle's distributed control system.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We present a custom printed circuit board designed in KiCad for the autonomous vehicle's distributed
+            embedded control system. The board integrates SN65HVD230 CAN transceivers for reliable differential
+            signaling on the 250 kbps CAN bus, TXB0104D bidirectional level shifters for mixed-voltage logic
+            interfacing between 3.3V and 5V domains, and Traco DC-DC converters for efficient power regulation
+            from the vehicle's 12V battery. The PCB provides clean power distribution, sensor connector
+            breakouts, and a compact form factor designed for mounting in the vehicle's electronics bay.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Schematic Design. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Schematic Design</h2>
+        <div class="content has-text-justified">
+          <img src="../images/avpcb/schematic.svg"
+               alt="Key schematic sections showing CAN transceivers and power regulation"
+               class="publication-image">
+          <p>
+            The schematic design centers on three key subsystems: CAN bus communication using SN65HVD230
+            transceivers with proper termination and common-mode filtering, voltage level translation using
+            TXB0104D bidirectional shifters for interfacing Teensy 4.1 (3.3V) with 5V sensors and actuators,
+            and power regulation using Traco DC-DC converters to step down the vehicle's 12V supply to the 5V
+            and 3.3V rails required by the electronics. The schematic follows automotive-grade design practices
+            with decoupling capacitors, ESD protection, and clearly defined power domains.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Schematic Design. -->
+
+    <!-- PCB Layout. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">PCB Layout</h2>
+        <div class="content has-text-justified">
+          <img src="../images/avpcb/pcb-layout.jpg"
+               alt="PCB layout showing component placement and copper routing"
+               class="publication-image">
+          <p>
+            The PCB layout optimizes signal integrity for the CAN bus differential pairs while maintaining
+            clean power plane separation between the high-current motor driver connections and sensitive analog
+            signals. Component placement prioritizes short trace lengths for high-speed signals and thermal
+            management for the DC-DC converters. The board uses a multi-layer stackup to accommodate the
+            routing density while keeping the form factor compact enough for the vehicle's electronics bay.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ PCB Layout. -->
+
+    <!-- Power System. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Power System</h2>
+        <div class="content has-text-justified">
+          <img src="../images/avpcb/power-block-diagram.svg"
+               alt="Power distribution block diagram showing voltage rails from 12V battery"
+               class="publication-image">
+          <p>
+            The power distribution system converts the vehicle's 12V battery supply into regulated 5V and 3.3V
+            rails. Traco DC-DC converters provide high-efficiency step-down conversion with low output ripple.
+            The design includes reverse polarity protection, overcurrent fuses, and power sequencing to ensure
+            clean startup of all microcontroller nodes on the CAN bus. Separate power domains isolate the
+            analog sensor circuits from digital switching noise.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Power System. -->
+
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://github.com/Paarseus" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            Website template borrowed from <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

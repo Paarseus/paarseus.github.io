@@ -3,19 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Multimodal imitation learning fusing RGB, thermal, and CAN data for illumination-robust autonomous driving.">
-  <meta name="keywords" content="Imitation Learning, Autonomous Driving, Multimodal, Thermal Camera">
+        content="WebSocket and WebRTC-based remote vehicle control with Whisper voice commands and multi-input priority arbitration.">
+  <meta name="keywords" content="WebSocket, WebRTC, Whisper, Tailscale, VPN, teleoperation, real-time">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Multimodal Imitation Learning for Day-Night Driving — Parsa Ghasemi</title>
+  <title>Remote Vehicle Teleoperation System — Parsa Ghasemi</title>
 
-  <meta property="og:title" content="Multimodal Imitation Learning for Day-Night Driving — Parsa Ghasemi">
-  <meta property="og:description" content="Fusing RGB, thermal, and CAN data for illumination-robust autonomous driving with only 3 interventions over 0.3 miles.">
-  <meta property="og:image" content="https://paarseus.github.io/images/imitation-learning/hero.jpg">
-  <meta property="og:url" content="https://paarseus.github.io/imitation-learning/">
+  <meta property="og:title" content="Remote Vehicle Teleoperation System — Parsa Ghasemi">
+  <meta property="og:description" content="WebSocket and WebRTC-based remote vehicle control with Whisper voice commands and multi-input priority arbitration.">
+  <meta property="og:image" content="https://paarseus.github.io/images/teleoperation/hero-split-screen.jpg">
+  <meta property="og:url" content="https://paarseus.github.io/teleoperation/">
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
-
   <link rel="stylesheet" href="../static/css/bulma.min.css">
   <link rel="stylesheet" href="../static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="../static/css/bulma-slider.min.css">
@@ -97,10 +96,8 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Simplified Multimodal Imitation Learning for Day&ndash;Night Autonomous Driving</h1>
+          <h1 class="title is-1 publication-title">Remote Vehicle Teleoperation System</h1>
           <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              Aspen Knox<sup>1</sup>,</span>
             <span class="author-block">
               <a href="https://paarseus.github.io/">Parsa Ghasemi</a><sup>1</sup>
             </span>
@@ -111,19 +108,18 @@
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="publication-venue">SCAIR, 2025</span>
+            <span class="publication-venue">Part of DRIVE Platform</span>
           </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
-              <!-- PDF Link. -->
               <span class="link-block">
-                <a href="../resume/Simplified-Multimodal-Imitation-Learning-for-Day%E2%80%93Night-Autonomous-Driving.pdf"
+                <a href="https://github.com/Paarseus/AVCONSOLE"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
+                      <i class="fab fa-github"></i>
                   </span>
-                  <span>Paper</span>
+                  <span>AVCONSOLE</span>
                 </a>
               </span>
             </div>
@@ -138,9 +134,9 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <img src="../images/placeholder.svg" alt="Side-by-side RGB, thermal, and CAN data during day and night driving" style="width:100%; border-radius:10px;">
+      <img src="../images/teleoperation/hero-split-screen.jpg" alt="Operator WebUI split-screen with live vehicle camera feed" style="width:100%; border-radius:10px;">
       <h2 class="subtitle has-text-centered">
-        Fusing RGB, thermal, and vehicle telemetry into an imitation learning model that drives itself day or night with only 3 manual interventions.
+        Drive the vehicle from a simchair, a phone, or your voice&mdash;WebSocket streams commands while WebRTC pipes back live video.
       </h2>
     </div>
   </div>
@@ -155,10 +151,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We present a multimodal imitation learning approach that fuses RGB camera (30 Hz), thermal camera (30 Hz), and CAN bus telemetry (20 Hz) to enable autonomous driving across varying lighting conditions. Trained on 50,000+ synchronized frames collected on a campus route, the model learns to generalize driving behavior from day to night without explicit domain adaptation.
-          </p>
-          <p>
-            The system achieves autonomous navigation with only 3 manual interventions over a 0.3-mile campus route, demonstrating that simple sensor fusion with imitation learning can produce robust illumination-invariant driving policies.
+            We present a multi-modal remote teleoperation system for a full-scale autonomous vehicle. The system supports three input modalities: a physical simchair with steering wheel and pedals, a mobile phone WebUI, and voice commands via on-device Whisper speech-to-text. A WebSocket bridge streams control commands to the CAN master controller in real-time, while WebRTC provides low-latency live video from multiple vehicle cameras. A priority arbitration system safely manages concurrent inputs from multiple sources, with the simchair taking highest priority and voice commands the lowest.
           </p>
         </div>
       </div>
@@ -173,51 +166,45 @@
 
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Data Pipeline</h2>
+        <h2 class="title is-3">WebSocket Architecture</h2>
 
         <div class="content has-text-justified">
-          <img src="../images/imitation-learning/data-pipeline.svg" alt="Data pipeline: 3 sensor modalities synchronized into training frames" style="width:100%; border-radius:10px; margin-bottom:1em;">
+          <img src="../images/teleoperation/websocket-arch.svg" alt="WebSocket bridge architecture connecting operator interface to CAN master controller" style="width:100%; border-radius:10px; margin-bottom:1em;">
           <p>
-            The data pipeline synchronizes three heterogeneous sensor streams: an RGB camera at 30 Hz providing visual context, a thermal camera at 30 Hz capturing illumination-invariant features, and CAN bus telemetry at 20 Hz recording the expert driver's steering and throttle commands. All streams are temporally aligned and stored as synchronized training frames. The dataset captures diverse lighting conditions including direct sunlight, shade, dusk, and nighttime driving.
+            The teleoperation system uses a WebSocket bridge to stream control commands from remote operator interfaces to the vehicle's CAN master controller. Commands are serialized as JSON messages and transmitted over a Tailscale VPN connection, providing secure remote access without exposing the vehicle's network. The WebSocket server on the vehicle receives commands and translates them into CAN bus messages at the master controller's 100 Hz update rate.
           </p>
         </div>
 
-        <h2 class="title is-3">Multimodal Perception</h2>
+        <h2 class="title is-3">Video Streaming</h2>
 
         <div class="content has-text-justified">
-          <img src="../images/imitation-learning/model-arch.svg" alt="Multimodal fusion network architecture diagram" style="width:100%; border-radius:10px; margin-bottom:1em;">
+          <img src="../images/teleoperation/hero-split-screen.jpg" alt="Split-screen operator view with front and rear vehicle cameras" style="width:100%; border-radius:10px; margin-bottom:1em;">
           <p>
-            The perception pipeline fuses RGB and thermal camera inputs into a joint representation that remains stable across lighting conditions. Where RGB features degrade at night, thermal features provide consistent road and obstacle signatures. The imitation learning model maps this fused representation directly to vehicle control commands, learning the expert's driving policy end-to-end without handcrafted rules.
+            WebRTC provides low-latency live video streaming from multiple vehicle cameras to the operator interface. The system supports configurable camera selection and resolution, with adaptive bitrate based on network conditions. The operator WebUI displays camera feeds alongside vehicle telemetry data including speed, steering angle, and system health indicators.
           </p>
         </div>
 
-        <h2 class="title is-3">Results</h2>
+        <h2 class="title is-3">Voice Control</h2>
 
         <div class="content has-text-justified">
-          <img src="../images/imitation-learning/results.jpg" alt="Campus route map with intervention points marked" style="width:100%; border-radius:10px; margin-bottom:1em;">
+          <img src="../images/teleoperation/voice-pipeline.svg" alt="Voice control pipeline: microphone to Whisper to command parser to CAN bus" style="width:100%; border-radius:10px; margin-bottom:1em;">
           <p>
-            The system was evaluated on a 0.3-mile campus route under varying lighting conditions. The trained model achieved autonomous navigation with only 3 manual interventions, demonstrating reliable day-to-night generalization. This work was presented as a poster at the Southern California AI and Robotics Symposium (SCAIR 2025).
+            Voice control runs OpenAI's Whisper model on-device for speech-to-text conversion, eliminating cloud dependency and latency. Recognized commands are parsed into vehicle control actions (forward, stop, turn left/right, speed up/slow down). The voice pipeline includes confirmation feedback and safety constraints that limit maximum speed and require explicit confirmation for potentially dangerous maneuvers.
+          </p>
+        </div>
+
+        <h2 class="title is-3">Priority Arbitration</h2>
+
+        <div class="content has-text-justified">
+          <img src="../images/teleoperation/priority-state-machine.svg" alt="Input priority state machine: Simchair highest, phone middle, voice lowest" style="width:100%; border-radius:10px; margin-bottom:1em;">
+          <p>
+            When multiple input sources compete for vehicle control, a priority arbitration system ensures safe behavior. The simchair has highest priority as the primary operator interface, followed by the phone WebUI, with voice commands at the lowest priority. Input transitions include timeout-based fallback&mdash;if the active input source stops sending commands, control gracefully transfers to the next available source or triggers an emergency stop.
           </p>
         </div>
 
       </div>
     </div>
 
-  </div>
-</section>
-
-
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@article{knox2025imitation,
-  author = {Knox, Aspen and Ghasemi, Parsa},
-  title  = {Simplified Multimodal Imitation Learning for
-            Day--Night Autonomous Driving},
-  year   = {2025},
-  note   = {Poster presentation at the Southern California
-            AI and Robotics Symposium (SCAIR)}
-}</code></pre>
   </div>
 </section>
 

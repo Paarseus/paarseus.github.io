@@ -6,7 +6,12 @@
         content="Distributed CAN bus control system with 4 Teensy 4.1 MCUs, custom PCB, and multi-layer safety architecture for autonomous vehicles.">
   <meta name="keywords" content="CAN Bus, Embedded Systems, Teensy, PCB, Safety">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Distributed Embedded Vehicle Control System</title>
+  <title>Distributed CAN Bus Control System — Parsa Ghasemi</title>
+
+  <meta property="og:title" content="Distributed CAN Bus Control System — Parsa Ghasemi">
+  <meta property="og:description" content="4 Teensy 4.1 MCUs on CAN bus at 250 kbps running closed-loop steering, throttle, and brake control with zero safety incidents.">
+  <meta property="og:image" content="https://paarseus.github.io/images/can-bus/hero.jpg">
+  <meta property="og:url" content="https://paarseus.github.io/control-system/">
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
@@ -52,11 +57,32 @@
           <a class="navbar-item" href="../avros/">
             AV Platform
           </a>
+          <a class="navbar-item" href="../perception/">
+            Perception
+          </a>
+          <a class="navbar-item" href="../navigation/">
+            Navigation
+          </a>
+          <a class="navbar-item" href="../field-testing/">
+            Field Testing
+          </a>
           <a class="navbar-item" href="../control-system/">
             Control System
           </a>
+          <a class="navbar-item" href="../teleoperation/">
+            Teleoperation
+          </a>
           <a class="navbar-item" href="../imitation-learning/">
             Imitation Learning
+          </a>
+          <a class="navbar-item" href="../carla-rl/">
+            CARLA RL
+          </a>
+          <a class="navbar-item" href="../legged-robotics/">
+            Legged Robotics
+          </a>
+          <a class="navbar-item" href="../avpcb/">
+            AVPCB
           </a>
         </div>
       </div>
@@ -130,7 +156,7 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <img src="../images/placeholder.svg" alt="Control system" style="width:100%; border-radius:10px;">
+      <img src="../images/can-bus/hero.jpg" alt="Teensy 4.1 boards and CAN transceivers labeled in electronics bay" style="width:100%; border-radius:10px;">
       <h2 class="subtitle has-text-centered">
         Four Teensy 4.1 MCUs on a CAN bus running closed-loop steering, throttle, and brake control with zero safety incidents over 50+ hours.
       </h2>
@@ -168,7 +194,7 @@
         <h2 class="title is-3">CAN Bus Architecture</h2>
 
         <div class="content has-text-justified">
-          <img src="../images/placeholder.svg" alt="CAN bus architecture" style="width:100%; border-radius:10px; margin-bottom:1em;">
+          <img src="../images/can-bus/topology.svg" alt="CAN bus topology with 4 Teensy 4.1 MCUs at 250 kbps, roles labeled, message IDs shown" style="width:100%; border-radius:10px; margin-bottom:1em;">
           <p>
             The distributed system coordinates 4 specialized microcontroller nodes. A <strong>Master CAN Controller</strong> runs at 100 Hz and arbitrates commands from the autonomy stack, teleoperation interfaces, and the E-STOP system. A <strong>throttle node</strong> drives an MCP4728 quad DAC over I2C for precise voltage output (0.3V&ndash;4.0V) with drive mode selection. A <strong>steering node</strong> controls a stepper motor with analog encoder feedback and non-blocking pulse generation. A <strong>brake node</strong> implements closed-loop linear actuator control with stroke calibration. Custom CAN message protocol (0x100/0x200/0x300) provides JSON telemetry and ASCII command interface for remote monitoring.
           </p>
@@ -177,7 +203,7 @@
         <h2 class="title is-3">Safety System</h2>
 
         <div class="content has-text-justified">
-          <img src="../images/placeholder.svg" alt="Safety system" style="width:100%; border-radius:10px; margin-bottom:1em;">
+          <img src="../images/can-bus/estop-state-machine.svg" alt="E-STOP state machine: NORMAL to E_STOP to BRAKING to STOPPED" style="width:100%; border-radius:10px; margin-bottom:1em;">
           <p>
             The four-layer E-STOP architecture provides defense in depth: a physical kill switch, CAN-level software E-STOP, watchdog timeout failsafe, and per-actuator safety limits. If any node loses CAN communication for more than 500ms, the hardware watchdog triggers automatic emergency braking across the entire network. This architecture has achieved &lt;200ms emergency response time and zero safety incidents over 50+ hours of autonomous operation.
           </p>
@@ -186,7 +212,7 @@
         <h2 class="title is-3">Custom PCB Design</h2>
 
         <div class="content has-text-justified">
-          <img src="../images/placeholder.svg" alt="PCB design" style="width:100%; border-radius:10px; margin-bottom:1em;">
+          <img src="../images/can-bus/pcb-render.jpg" alt="Custom PCB KiCad 3D render with CAN transceivers and DC-DC converters" style="width:100%; border-radius:10px; margin-bottom:1em;">
           <p>
             The custom PCB designed in KiCad integrates SN65HVD230 CAN transceivers for reliable differential signaling, TXB0104D level shifters for mixed-voltage logic interfacing, and Traco DC-DC converters for power regulation. The board provides clean power distribution, sensor connector breakouts, and a compact form factor for mounting in the vehicle.
           </p>

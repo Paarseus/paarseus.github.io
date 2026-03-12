@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Gymnasium-compatible RL training environment for CARLA achieving 100 steps/sec with <10ms multi-sensor latency.">
+  <meta name="keywords" content="PPO, SAC, TD3, Gymnasium, CARLA, reinforcement learning, reward shaping, factory pattern">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="Gymnasium RL Environment for CARLA — Parsa Ghasemi" />
+  <meta property="og:description" content="Gymnasium-compatible RL training environment for CARLA achieving 100 steps/sec with <10ms multi-sensor latency." />
+  <meta property="og:image" content="https://paarseus.github.io/images/carla-rl/hero-carla.jpg" />
+  <meta property="og:url" content="https://paarseus.github.io/carla-rl/" />
+
+  <title>Gymnasium RL Environment for CARLA — Parsa Ghasemi</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/bulma.min.css">
+  <link rel="stylesheet" href="../static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="../static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="../static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="../static/css/index.css">
+  <link rel="icon" href="../images/favicon/favicon.ico">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="../static/js/fontawesome.all.min.js"></script>
+  <script src="../static/js/bulma-carousel.min.js"></script>
+  <script src="../static/js/bulma-slider.min.js"></script>
+  <script src="../static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://paarseus.github.io">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Projects
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="../avros/">
+            AV Platform
+          </a>
+          <a class="navbar-item" href="../perception/">
+            Perception
+          </a>
+          <a class="navbar-item" href="../navigation/">
+            Navigation
+          </a>
+          <a class="navbar-item" href="../field-testing/">
+            Field Testing
+          </a>
+          <a class="navbar-item" href="../control-system/">
+            Control System
+          </a>
+          <a class="navbar-item" href="../teleoperation/">
+            Teleoperation
+          </a>
+          <a class="navbar-item" href="../imitation-learning/">
+            Imitation Learning
+          </a>
+          <a class="navbar-item" href="../carla-rl/">
+            CARLA RL
+          </a>
+          <a class="navbar-item" href="../legged-robotics/">
+            Legged Robotics
+          </a>
+          <a class="navbar-item" href="../avpcb/">
+            AVPCB
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Gymnasium-Compatible RL Training Environment for CARLA</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://paarseus.github.io">Parsa Ghasemi</a><sup>1</sup>,</span>
+            <span class="author-block">
+              Alexander Assal<sup>1</sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Cal Poly Pomona</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/Paarseus/carla-rl-suite"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>carla-rl-suite</span>
+                </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="../images/carla-rl/hero-carla.jpg"
+           alt="CARLA simulator screenshot with reward curve overlay"
+           class="publication-image">
+      <h2 class="subtitle has-text-centered">
+        A modular Gymnasium wrapper around CARLA that hits 100 steps/sec with sub-10 ms latency and zero memory leaks.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We present a modular Gymnasium-compatible environment for the CARLA autonomous driving simulator
+            that achieves 100 steps/sec training throughput with sub-10ms multi-sensor latency. The system uses
+            a manager-based architecture with 7 modules and factory pattern sensors, enabling JSON-configurable
+            training scenarios with dual-queue event handling. The environment supports continuous control action
+            spaces (2D: steering + acceleration/braking) compatible with PPO, SAC, and TD3 algorithms. A PPO
+            agent trained in this environment achieves stable lane-following behavior within 50,000 steps,
+            validated over 10,000 episodes with no memory leaks.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Manager-Based Architecture. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Manager-Based Architecture</h2>
+        <div class="content has-text-justified">
+          <img src="../images/carla-rl/manager-architecture.svg"
+               alt="7-module manager architecture with factory pattern sensor creation"
+               class="publication-image">
+          <p>
+            The environment is organized into 7 specialized managers: World Manager, Vehicle Manager, Sensor
+            Manager, Observation Manager, Reward Manager, Scenario Manager, and Event Manager. Each manager
+            encapsulates a specific concern, and a factory pattern enables dynamic sensor creation based on JSON
+            configuration files. Dual-queue event handling separates synchronous simulation events from
+            asynchronous sensor callbacks, ensuring deterministic training behavior.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Manager-Based Architecture. -->
+
+    <!-- Training Pipeline. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Training Pipeline</h2>
+        <div class="content has-text-justified">
+          <img src="../images/carla-rl/training-results.svg"
+               alt="Training reward curve showing PPO convergence and flat memory usage line"
+               class="publication-image">
+          <p>
+            The training pipeline achieves 100 steps/sec throughput by minimizing Python-CARLA communication
+            overhead and batching sensor queries. Multi-sensor latency stays below 10ms through careful
+            synchronization of camera, LiDAR, and state vector observations. Memory usage remains flat across
+            10,000+ episodes, verified through systematic leak testing. The environment implements standard
+            Gymnasium reset/step interfaces for seamless integration with Stable-Baselines3 and other RL
+            frameworks.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Training Pipeline. -->
+
+    <!-- Observation & Action Spaces. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Observation & Action Spaces</h2>
+        <div class="content has-text-justified">
+          <img src="../images/carla-rl/observation-space.jpg"
+               alt="Multi-modal observation combining RGB camera, state vector, and navigation data"
+               class="publication-image">
+          <p>
+            The observation space combines RGB camera images, vehicle state vectors (speed, acceleration,
+            steering angle), and navigation data (waypoints, distance to goal) into a multi-modal input
+            suitable for end-to-end learning. The continuous action space maps a 2D vector to steering angle
+            and combined acceleration/braking, compatible with on-policy (PPO) and off-policy (SAC, TD3)
+            algorithms. Reward shaping balances lane-keeping, progress toward waypoints, and collision
+            avoidance.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Observation & Action Spaces. -->
+
+    <!-- Results. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Results</h2>
+        <div class="content has-text-justified">
+          <img src="../images/carla-rl/hero-carla.jpg"
+               alt="CARLA environment showing trained agent following lane"
+               class="publication-image">
+          <p>
+            A PPO agent trained for 50,000 steps achieves stable lane-following behavior on the CARLA Town01
+            map. The agent maintains center-lane driving through curves and intersections with minimal lateral
+            deviation. The configurable scenario system enables evaluation across different towns, weather
+            conditions, and traffic densities through JSON configuration files without code changes.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Results. -->
+
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://github.com/Paarseus" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            Website template borrowed from <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
