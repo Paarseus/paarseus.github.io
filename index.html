@@ -53,6 +53,12 @@
                   &nbsp;&middot;&nbsp; <a href="#drive-platform">project</a>
                 </p>
                 <p style="margin-top:6px; margin-bottom:6px;">
+                  <a href="teleoperation/"><span class="papertitle">Haptic-Guided Shared Autonomy for Full-Scale Vehicle Teleoperation</span></a><br>
+                  <strong>Parsa Ghasemi</strong>, Aspen Knox<br>
+                  <em>CPP RSCA Conference</em>, 2026 &nbsp;<font color="red"><strong>(Poster Presentation)</strong></font>
+                  &nbsp;&middot;&nbsp; <a href="#teleoperation">project</a>
+                </p>
+                <p style="margin-top:6px; margin-bottom:6px;">
                   <a href="imitation-learning/"><span class="papertitle">Simplified Multimodal Imitation Learning for Day-Night Autonomous Driving</span></a><br>
                   Aspen Knox, <strong>Parsa Ghasemi</strong><br>
                   <em>SCAIR</em>, 2025
@@ -151,14 +157,14 @@
   </td>
 </tr>
 
-<!-- Project 3: Teleoperation & WebUI -->
-<tr id="teleoperation" onmouseout="teleop_stop()" onmouseover="teleop_start()">
+<!-- Project 3: Haptic Teleoperation — highlighted (RSCA 2026) -->
+<tr id="teleoperation" onmouseout="teleop_stop()" onmouseover="teleop_start()" bgcolor="#ffffd0">
   <td style="padding:16px;width:20%;vertical-align:middle;text-align:center">
     <div class="one">
       <div class="two" id='teleop_image'>
-        <img src='images/teleoperation/hero-split-screen.jpg' style="width:100%">
+        <img src='images/teleoperation/haptic-diagram.png' style="width:100%">
       </div>
-      <img src='images/teleoperation/hero-split-screen.jpg' style="width:100%">
+      <img src='images/teleoperation/haptic-diagram.png' style="width:100%">
     </div>
     <script type="text/javascript">
       function teleop_start() {
@@ -173,15 +179,16 @@
   </td>
   <td style="padding:8px;width:80%;vertical-align:middle">
     <a href="teleoperation/">
-      <span class="papertitle">Real-Time Vehicle Teleoperation &amp; WebUI with Voice Control</span>
+      <span class="papertitle">Haptic-Guided Shared Autonomy for Full-Scale Vehicle Teleoperation</span>
     </a>
     <br><br>
     <p>
-      Drive the vehicle from a simchair, a phone, or just your voice&mdash;a WebSocket bridge streams commands to the CAN master while WebRTC pipes back live video. Whisper runs on-device for speech-to-text control, and priority arbitration keeps everything safe when multiple inputs compete.
+      Force-feedback steering, IMU-driven motion cueing on a 4-actuator platform, and continuous authority blending let a remote operator feel the vehicle while driving it over VPN. A Pure Pursuit controller generates guidance torques that the operator perceives through the steering wheel, with &alpha; smoothly trading control between human and autonomy.
     </p>
     <p>
       <a href="teleoperation/">project page</a> /
-      <a href="https://github.com/Paarseus/AVCONSOLE">AVCONSOLE</a>
+      <a href="https://github.com/Paarseus/AVCONSOLE">AVCONSOLE</a> /
+      poster (RSCA 2026)
     </p>
   </td>
 </tr>

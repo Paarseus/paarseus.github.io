@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="WebSocket and WebRTC-based remote vehicle control with Whisper voice commands and multi-input priority arbitration.">
-  <meta name="keywords" content="WebSocket, WebRTC, Whisper, Tailscale, VPN, teleoperation, real-time">
+        content="Haptic-guided shared autonomy for full-scale vehicle teleoperation with force-feedback steering, IMU-driven motion cueing, and continuous authority blending.">
+  <meta name="keywords" content="haptic shared control, teleoperation, force feedback, motion cueing, Pure Pursuit, CAN bus, VPN, WebRTC">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Remote Vehicle Teleoperation System — Parsa Ghasemi</title>
+  <title>Haptic-Guided Shared Autonomy for Vehicle Teleoperation &mdash; Parsa Ghasemi</title>
 
-  <meta property="og:title" content="Remote Vehicle Teleoperation System — Parsa Ghasemi">
-  <meta property="og:description" content="WebSocket and WebRTC-based remote vehicle control with Whisper voice commands and multi-input priority arbitration.">
-  <meta property="og:image" content="https://paarseus.github.io/images/teleoperation/hero-split-screen.jpg">
+  <meta property="og:title" content="Haptic-Guided Shared Autonomy for Vehicle Teleoperation &mdash; Parsa Ghasemi">
+  <meta property="og:description" content="Force-feedback steering, motion cueing, and continuous authority blending for remote vehicle operation.">
+  <meta property="og:image" content="https://paarseus.github.io/images/teleoperation/vehicle-platform.jpg">
   <meta property="og:url" content="https://paarseus.github.io/teleoperation/">
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
@@ -96,19 +96,28 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Remote Vehicle Teleoperation System</h1>
+          <h1 class="title is-1 publication-title">Haptic-Guided Shared Autonomy for Full-Scale Vehicle Teleoperation</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://paarseus.github.io/">Parsa Ghasemi</a><sup>1</sup>
+              <a href="https://paarseus.github.io/">Parsa Ghasemi</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              Aspen Knox<sup>1</sup>
             </span>
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>Cal Poly Pomona</span>
+            <span class="author-block"><sup>1</sup>Autonomous Vehicle Laboratory, Cal Poly Pomona</span>
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="publication-venue">Part of DRIVE Platform</span>
+            <span class="publication-venue">CPP RSCA Conference 2026</span>
+            &nbsp;
+            <span class="publication-awards">Poster Presentation</span>
+          </div>
+
+          <div class="is-size-6 publication-authors" style="margin-top:0.3em;">
+            <span class="author-block">Faculty Mentor: Dr. Behnam Bahr</span>
           </div>
 
           <div class="column has-text-centered">
@@ -120,6 +129,15 @@
                       <i class="fab fa-github"></i>
                   </span>
                   <span>AVCONSOLE</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/Paarseus/av-control-system"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>av-control-system</span>
                 </a>
               </span>
             </div>
@@ -134,9 +152,9 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <img src="../images/teleoperation/hero-split-screen.jpg" alt="Operator WebUI split-screen with live vehicle camera feed" style="width:100%; border-radius:10px;">
+      <img src="../images/teleoperation/vehicle-platform.jpg" alt="DRIVE vehicle platform on Cal Poly Pomona campus" style="width:100%; border-radius:10px;">
       <h2 class="subtitle has-text-centered">
-        Drive the vehicle from a simchair, a phone, or your voice&mdash;WebSocket streams commands while WebRTC pipes back live video.
+        Force-feedback steering, IMU-driven motion cueing, and continuous authority blending for intuitive remote driving through a VPN tunnel.
       </h2>
     </div>
   </div>
@@ -151,7 +169,10 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We present a multi-modal remote teleoperation system for a full-scale autonomous vehicle. The system supports three input modalities: a physical simchair with steering wheel and pedals, a mobile phone WebUI, and voice commands via on-device Whisper speech-to-text. A WebSocket bridge streams control commands to the CAN master controller in real-time, while WebRTC provides low-latency live video from multiple vehicle cameras. A priority arbitration system safely manages concurrent inputs from multiple sources, with the simchair taking highest priority and voice commands the lowest.
+            Remote vehicle teleoperation is essential in hazardous and inaccessible environments, yet current interfaces provide no vestibular or haptic feedback, allocate control authority in a binary fashion, and elevate cognitive workload. This work integrates force-feedback steering, motion cueing, and continuous authority blending into a full-scale drive-by-wire vehicle platform to address these gaps.
+          </p>
+          <p>
+            The operator station combines a force-feedback steering wheel, pedals, a triple-monitor display, and a six-degree-of-freedom motion platform with vestibular-aligned cueing. The vehicle platform comprises an electric UTV instrumented with multi-beam LiDAR, an RTK-GPS/IMU unit, and an RGB-D camera, all coordinated through a distributed CAN bus running at 250 kbps across four Teensy 4.1 microcontrollers. A haptic shared-control paradigm continuously blends autonomous and human steering inputs, allowing the operator to feel path-deviation guidance torques while retaining full override capability at any time.
           </p>
         </div>
       </div>
@@ -166,39 +187,131 @@
 
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">WebSocket Architecture</h2>
+        <h2 class="title is-3">Haptic Shared Control</h2>
 
         <div class="content has-text-justified">
-          <img src="../images/teleoperation/websocket-arch.png" alt="WebSocket bridge architecture connecting operator interface to CAN master controller" style="max-width:100%; border-radius:10px; margin-bottom:1em; display:block; margin-left:auto; margin-right:auto;">
+          <img src="../images/teleoperation/haptic-blending.png" alt="Haptic shared control diagram showing autonomous path planner, human operator, haptic blending, and vehicle actuators with force-feedback loop" style="max-width:100%; border-radius:10px; margin-bottom:1em; display:block; margin-left:auto; margin-right:auto;">
           <p>
-            The teleoperation system uses a WebSocket bridge to stream control commands from remote operator interfaces to the vehicle's CAN master controller. Commands are serialized as JSON messages and transmitted over a Tailscale VPN connection, providing secure remote access without exposing the vehicle's network. The WebSocket server on the vehicle receives commands and translates them into CAN bus messages at the master controller's 100 Hz update rate.
+            A Pure Pursuit controller generates a reference steering angle from a planned path. The deviation between the reference and the current steering angle produces a guidance torque through a virtual spring model:
+          </p>
+          <p style="text-align:center; font-size:1.2em; font-style:italic;">
+            &tau;<sub>auto</sub> = K<sub>s</sub> &middot; &delta;<sub>error</sub>
+          </p>
+          <p>
+            The operator perceives this torque as force feedback on the steering wheel. The commanded actuator torque is computed as a weighted blend of autonomous and operator inputs:
           </p>
         </div>
 
-        <h2 class="title is-3">Video Streaming</h2>
-
-        <div class="content has-text-justified">
-          <img src="../images/teleoperation/hero-split-screen.jpg" alt="Split-screen operator view with front and rear vehicle cameras" style="max-width:100%; border-radius:10px; margin-bottom:1em; display:block; margin-left:auto; margin-right:auto;">
-          <p>
-            WebRTC provides low-latency live video streaming from multiple vehicle cameras to the operator interface. The system supports configurable camera selection and resolution, with adaptive bitrate based on network conditions. The operator WebUI displays camera feeds alongside vehicle telemetry data including speed, steering angle, and system health indicators.
+        <div class="content" style="background:#f5f0e0; border-radius:10px; padding:1.2em; margin-bottom:1.5em;">
+          <p style="text-align:center; font-weight:bold; margin-bottom:0.5em;">Torque Blending Law</p>
+          <p style="text-align:center; font-size:1.3em;">
+            &tau;<sub>cmd</sub> = &alpha; &middot; &tau;<sub>auto</sub> + (1 &minus; &alpha;) &middot; &tau;<sub>human</sub>, &nbsp;&nbsp; &alpha; &isin; [0, 1]
           </p>
         </div>
 
-        <h2 class="title is-3">Voice Control</h2>
+        <div class="content has-text-justified">
+          <ul>
+            <li><strong>&alpha; = 0</strong>: full manual control &nbsp;&harr;&nbsp; <strong>&alpha; = 1</strong>: full autonomy</li>
+            <li>&alpha; is <strong>operator-adjustable</strong> &mdash; the haptic torque guides without locking out manual input (at &alpha; &lt; 1 the operator always retains override authority)</li>
+            <li>Adaptive lookahead distance: <em>l</em> = clip(K<sub>dd</sub> &middot; v, l<sub>min</sub>, l<sub>max</sub>)</li>
+          </ul>
+        </div>
+
+        <h2 class="title is-3">Teleoperation System Architecture</h2>
 
         <div class="content has-text-justified">
-          <img src="../images/teleoperation/voice-pipeline.svg" alt="Voice control pipeline: microphone to Whisper to command parser to CAN bus" style="max-width:100%; border-radius:10px; margin-bottom:1em; display:block; margin-left:auto; margin-right:auto;">
+          <img src="../images/teleoperation/teleop-architecture.png" alt="System architecture showing Operator Station with FF Steering, Video+HUD, Pedals, and Motion Platform connected through VPN Tunnel to Vehicle with IMU, LiDAR, RealSense, Jetson Orin AGX, CAN Master, and Steer/Throttle/Brake actuators" style="max-width:100%; border-radius:10px; margin-bottom:1em; display:block; margin-left:auto; margin-right:auto;">
           <p>
-            Voice control runs OpenAI's Whisper model on-device for speech-to-text conversion, eliminating cloud dependency and latency. Recognized commands are parsed into vehicle control actions (forward, stop, turn left/right, speed up/slow down). The voice pipeline includes confirmation feedback and safety constraints that limit maximum speed and require explicit confirmation for potentially dangerous maneuvers.
+            Vehicle IMU data streams over VPN to the operator station, where four suspension actuators reproduce <strong>pitch</strong>, <strong>roll</strong>, and road-surface vibration. Commands flow from the operator station through the VPN tunnel to the Jetson Orin AGX, which relays them to the CAN master controller. Distributed CAN nodes close actuator control loops locally at 100 Hz.
           </p>
         </div>
 
-        <h2 class="title is-3">Priority Arbitration</h2>
+        <h2 class="title is-3">Full System Architecture</h2>
 
         <div class="content has-text-justified">
-          <img src="../images/teleoperation/priority-state-machine.svg" alt="Input priority state machine: Simchair highest, phone middle, voice lowest" style="max-width:100%; border-radius:10px; margin-bottom:1em; display:block; margin-left:auto; margin-right:auto;">
+          <img src="../images/teleoperation/system-architecture.jpg" alt="Full system architecture: Sim Chair with brake, steer, and throttle controllers connected via VPN to Go Kart with CAN bus actuators, plus motion controller driving four suspension actuators" style="max-width:100%; border-radius:10px; margin-bottom:1em; display:block; margin-left:auto; margin-right:auto;">
           <p>
-            When multiple input sources compete for vehicle control, a priority arbitration system ensures safe behavior. The simchair has highest priority as the primary operator interface, followed by the phone WebUI, with voice commands at the lowest priority. Input transitions include timeout-based fallback&mdash;if the active input source stops sending commands, control gracefully transfers to the next available source or triggers an emergency stop.
+            The sim chair hosts force-feedback steering, brake, steer, and throttle controllers that stream commands over a VPN tunnel to the vehicle's CAN bus. A separate motion controller drives four suspension actuators to reproduce vehicle dynamics. On the vehicle side, each actuator node (steer, throttle, brake) runs closed-loop control with position feedback on the CAN bus at 250 kbps.
+          </p>
+        </div>
+
+        <h2 class="title is-3">Software Pipeline</h2>
+
+        <div class="content has-text-justified">
+          <img src="../images/teleoperation/software-pipeline.png" alt="Software pipeline: Sensors (100 Hz) to Perception (10 Hz) to Planning (20 Hz) to Control (20 Hz) to Actuators" style="max-width:100%; border-radius:10px; margin-bottom:1em; display:block; margin-left:auto; margin-right:auto;">
+          <p>
+            The software architecture combines a Python-based perception and planning stack with real-time C++ firmware. Sensors (GPS/IMU, LiDAR, RealSense) feed data at 100 Hz into occupancy grid perception at 10 Hz, which drives A* global planning and Pure Pursuit path following at 20 Hz. The control layer computes steering PID and haptic torques, sending CAN bus commands to the actuators.
+          </p>
+        </div>
+
+        <h2 class="title is-3">Vehicle Platform</h2>
+
+        <div class="content has-text-justified">
+          <img src="../images/teleoperation/hero-split-screen.jpg" alt="Operator WebUI split-screen with live vehicle camera feed" style="max-width:100%; border-radius:10px; margin-bottom:1em; display:block; margin-left:auto; margin-right:auto;">
+          <table class="table is-bordered is-striped" style="margin:auto;">
+            <thead>
+              <tr>
+                <th>Parameter</th>
+                <th>Specification</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Chassis</td><td>Electric UTV, 159 kg, 1.23 m wheelbase</td></tr>
+              <tr><td>Powertrain</td><td>48 V lithium, 1.8 kW brushless motor</td></tr>
+              <tr><td>Actuation</td><td>Drive-by-wire steer, throttle, brake</td></tr>
+              <tr><td>Bus</td><td>CAN 2.0B, 250 kbps, 4&times; Teensy 4.1</td></tr>
+              <tr><td>Compute</td><td>NVIDIA Jetson Orin AGX</td></tr>
+              <tr><td>GPS/IMU</td><td>Xsens MTi-680G, RTK &plusmn;5&ndash;10 cm, 100 Hz</td></tr>
+              <tr><td>LiDAR</td><td>Velodyne VLP-16, 16-channel</td></tr>
+              <tr><td>Camera</td><td>Intel RealSense D435 (RGB-D)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="title is-3">System Characterization</h2>
+
+        <div class="content has-text-justified">
+          <table class="table is-bordered is-striped" style="margin:auto;">
+            <thead>
+              <tr>
+                <th>Parameter</th>
+                <th>Design Target</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Control round-trip latency</td><td>&lt; 50 ms</td><td>Under characterization</td></tr>
+              <tr><td>IMU-to-actuator latency</td><td>&lt; 100 ms</td><td>Under characterization</td></tr>
+              <tr><td>Haptic rendering rate</td><td>&ge; 1 kHz</td><td>Verified</td></tr>
+              <tr><td>CAN bus command rate</td><td>100 Hz</td><td>Verified</td></tr>
+              <tr><td>Watchdog timeout</td><td>500 ms</td><td>Configured</td></tr>
+              <tr><td>Localization accuracy (RTK)</td><td>&plusmn;5&ndash;10 cm</td><td>Verified</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="title is-3">Planned Evaluation</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            A within-subjects experiment (n &ge; 10) will compare <strong>direct teleoperation</strong> against <strong>haptic shared autonomy</strong> using cross-track error, task completion time, NASA-TLX workload, and operator override frequency. Bench characterization of haptic and motion-cueing latency will precede outdoor driving trials.
+          </p>
+        </div>
+
+        <h2 class="title is-3">RSCA Poster</h2>
+
+        <div class="content">
+          <img src="../images/teleoperation/rsca-poster.png" alt="RSCA 2026 poster: Haptic-Guided Shared Autonomy for Full-Scale Vehicle Teleoperation" style="max-width:100%; border-radius:10px; display:block; margin-left:auto; margin-right:auto;">
+          <p class="has-text-centered" style="margin-top:0.5em; font-style:italic;">
+            Presented at the CPP 14th Annual Student Research, Scholarship &amp; Creative Activities Conference, March 7, 2026.
+          </p>
+        </div>
+
+        <h2 class="title is-3">Acknowledgements</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            This work was conducted in the Autonomous Vehicle Laboratory at Cal Poly Pomona, directed by Dr. Behnam Bahr. Funding was provided by the Ganpat and Manju Center for International Collaboration and Innovation and the U.S. Department of Education.
           </p>
         </div>
 
